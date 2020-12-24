@@ -11,7 +11,11 @@ public class Single {
         health = h;
         String[] interests = i;
     }
-    
+
+    public Single() {
+
+    }
+
 
     public String getName()
     {
@@ -28,14 +32,14 @@ public class Single {
 
     public void setHealth(int g)
     {
-      health = g;
+        health = g;
     }
     public String[] getInterests()  //doesnt work
     {
         return interests;
     }
-  //  public void setInterests(String d)   //doesnt work
-   // {
-  //      interests = d;
-  //  }
+    //  public void setInterests(String d)   //doesnt work
+    // {
+    //      interests = d;
+    //  }
 }
