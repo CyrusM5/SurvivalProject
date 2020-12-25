@@ -40,3 +40,4 @@ public class Situations {
         return this.character + ", " + this.iIncident + " " + anniversary;
     }
     //anniversary
+}
