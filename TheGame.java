@@ -17,7 +17,7 @@ public class TheGame {
         String[] badArray = {"Clenches jaw", "Holds finger to chin or lips", "Look away", "Rubs neck or head", "Shifts weight", "Slouches"};
         String[] cyrusInterests = {"Philosophy", "Whale Riding"};
         String[] arinaInterests = {"Philosophy", "Bear Wrestling"};
-        String[] halilInterests = {"Poetry", "Crossing Guard"};
+        String[] halilInterests = {"Poetry", "Football"};
         String[] userInterests = {};
         Single cyrus = new Single("Cyrus", 250, cyrusInterests);
         Single arina = new Single("Arina", 200, arinaInterests);
@@ -40,7 +40,7 @@ public class TheGame {
         System.out.println("Please press any key to continue.");
         character = new Scanner(System.in);
         String enter = character.nextLine();
-        System.out.println("What's up doc? You're gonna play a mini-game before the simulation begins");
+        System.out.println("What's up doc? Let's get you warmed up with a quick mini-game before the simulation begins");
         System.out.println("This happens to you on a date. Is it good or bad?(good/bad)\n");
         int random = randomGenerator(0,10);
         if (random%5==0){
