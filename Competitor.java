@@ -12,12 +12,15 @@ public class Competitor
         name = n;
     }
     public String toString(){
-        return "Your competitor is " + single.getName() + ".";
+        return "Your competitor is " + name + ".\n";
     }
     public void setHealth(int decrease){
         health = health - decrease;
     }
     public  int getHealth(){
         return health;
+    }
+    public String getName(){
+        return name;
     }
 }
