@@ -1,11 +1,10 @@
 import java.util.*;
 public class TheGame {
-    public static int randomGenerator(int max, int min)
-    {
-        return (int) ((Math.random()*(max - min)) + 1) + min;
+    public static int randomGenerator(int max, int min) {
+        return (int) ((Math.random() * (max - min)) + 1) + min;
     }
-    public static void main(String[] args)
-    {
+
+    public static void main(String[] args) {
         Situations wWComp = new Situations("you're smiling too much, and are scaring away your date.", "Willy Wonka");
         Situations wWPanic = new Situations("you realize you'll have to find time for the Wonka Factroy, Oompa Loompas and your new spouse.", "Willy Wonka");
         Situations wWBreak = new Situations("you're afraid you'll smile too much, and will scare everyone at the wedding.", "Willy Wonka");
@@ -23,7 +22,16 @@ public class TheGame {
         Single arina = new Single("Arina", 200, arinaInterests);
         Single halil = new Single("Halil", 199, halilInterests);
         Single user = new Single("", 500, userInterests);//this is the main character
-        Competitor theOne = new Competitor();
+        Competitor theOne;
+        //set the Competitor for the rest of the game
+        int random = randomGenerator(0, 10);
+        if (random % 5 == 0) {
+            theOne = new Competitor(cyrus.getHealth(), cyrus.getName());
+        } else if (random % 2 == 0) {
+            theOne = new Competitor(arina.getHealth(), arina.getName());
+        } else {
+            theOne = new Competitor(halil.getHealth(), halil.getName());
+        }
 
         //Introduction
         System.out.println("Sup, sunshine. You must be single and ready to mingle! We're experts at replicating real life scenarios; specifically, those pertaining to dating!");
@@ -40,55 +48,46 @@ public class TheGame {
         System.out.println("Please press any key to continue.");
         character = new Scanner(System.in);
         String enter = character.nextLine();
-        System.out.println("What's up doc? Let's get you warmed up with a quick mini-game before the simulation begins");
-        System.out.println("This happens to you on a date. Is it good or bad?(good/bad)\n");
-        int random = randomGenerator(0,10);
-        if (random%5==0){
-            theOne = new Competitor(cyrus.getHealth(), cyrus.getName());
-        }
-        else if (random%2==0){
-            theOne = new Competitor(arina.getHealth(), arina.getName());
-        }
-        else{
-            theOne = new Competitor(halil.getHealth(), halil.getName());
-        }
-        Scanner character2 = new Scanner(System.in);
-        int mGScore = 0;
-        int cAns = 0;
-        int wAns = 0;
-        for (int i = 0; i < goodArray.length; i++)
-        {
-            System.out.println(goodArray[i]);
-            character2 = new Scanner(System.in);
-            String good = character2.nextLine();
-            if (good.equalsIgnoreCase("good"))
-            {
-                System.out.println("Yay!");
-                mGScore++;
-                cAns++;
-            }
-            else{
-                System.out.println("Oh no!");
-                mGScore--;
-                wAns++;
-            }
-            System.out.println(badArray[i]);
-            character2 = new Scanner(System.in);
-            String bad = character2.nextLine();
-            if (bad.equalsIgnoreCase("bad"))
-            {
-                System.out.println("Yay!");
-                mGScore++;
-                cAns++;
-            }
-            else{
-                System.out.println("Oh no!");
-                mGScore--;
-                wAns++;
-            }
-        }
-        System.out.println("You got " + mGScore + " out of 12 points!");
-        System.out.println("You got " + cAns + " correct answers and " + wAns + " wrong answers.");
+
+        //User plays mini-game before starting the simulation
+//        System.out.println("What's up doc? Let's get you warmed up with a quick mini-game before the simulation begins");
+//        System.out.println("This happens to you on a date. Is it good or bad?(good/bad)\n");
+//        //the bonus game
+//        Scanner minigame = new Scanner(System.in);
+//        int mGScore = 0;
+//        int cAns = 0;
+//        int wAns = 0;
+//        for (int i = 0; i < goodArray.length; i++)
+//        {
+//            System.out.println(goodArray[i]);
+//            String good = minigame.nextLine();
+//            if (good.equalsIgnoreCase("good"))
+//            {
+//                System.out.println("Yay!");
+//                mGScore++;
+//                cAns++;
+//            }
+//            else{
+//                System.out.println("Oh no!");
+//                mGScore--;
+//                wAns++;
+//            }
+//            System.out.println(badArray[i]);
+//            String bad = minigame.nextLine();
+//            if (bad.equalsIgnoreCase("bad"))
+//            {
+//                System.out.println("Yay!");
+//                mGScore++;
+//                cAns++;
+//            }
+//            else{
+//                System.out.println("Oh no!");
+//                mGScore--;
+//                wAns++;
+//            }
+//        }
+//        System.out.println("You got " + mGScore + " out of 12 points!");
+//        System.out.println("You got " + cAns + " correct answers and " + wAns + " wrong answers.");
 
         //based on how the user describes themselves the story line changes
         //this is why I took out background
@@ -96,19 +95,14 @@ public class TheGame {
         System.out.println("nice, Willy Wonka, attractive, weird, quirky");
         character = new Scanner(System.in);
         String personality = character.nextLine();
-
-        //Competitor.setCompetitor(i);
-        //System.out.println(theOne);
-        System.out.println(theOne);
-        System.out.println(theOne.getHealth());
-
         //when the user chooses nice
-        if (personality.equalsIgnoreCase("nice")){
-            System.out.println("You signed up for Christian Mingle and described yourself as \"nice\". After a few long days, \n"+
+        //if the user's health is below 0 the game will end
+        if (personality.equalsIgnoreCase("nice")) {
+            System.out.println("You signed up for Christian Mingle and described yourself as \"nice\". After a few long days, \n" +
                     "you finally matched with someone. Surprising! you didn't expect it and thought it was too good to be true \n" +
                     "and maybe it was...\nIt's a Friday night, you get out of work and get ready. Normal evening, nothing special.\n" +
-                    "You get in your car and start driving to the restaurant. You're on route 66 heading north, in front of you \n"+
-                    "is a pickup truck hauling a trailer with a cow in it. You watch the cow walk back and forth hitting the gate. \n"+
+                    "You get in your car and start driving to the restaurant. You're on route 66 heading north, in front of you \n" +
+                    "is a pickup truck hauling a trailer with a cow in it. You watch the cow walk back and forth hitting the gate. \n" +
                     "The car hits the road and the cow bounces, spinning with its legs flopping around. It keeps bouncing and spinning, bouncing and spinning, legs still flopping.");
             System.out.println("Please press any key to continue.");
             character = new Scanner(System.in);
@@ -117,42 +111,30 @@ public class TheGame {
 
             //Thread class just to makes it look nice when the program runs.(you can use that segment
             //of code if you ever want the text to show after a certain period of time.)
-            try
-            {
+            try {
                 Thread.sleep(3000);
-            }
-            catch(InterruptedException ex)
-            {
+            } catch (InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
             System.out.println("\"Is it Polish?\"");//this is funnier trust me.
-            try
-            {
+            try {
                 Thread.sleep(3000);
-            }
-            catch(InterruptedException ex)
-            {
+            } catch (InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
             System.out.println("You notice the cow is flying right at you. Naturally, as a nice person you say,\n"
                     + "\"Hold on cow, you are invading my personal space. I would appreciate it if you wou...\"");//uh oh, you said the no-no word so I had to modify it.
-            try
-            {
+            try {
                 Thread.sleep(7000);
-            }
-            catch(InterruptedException ex)
-            {
+            } catch (InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
             System.out.println("\nYou are dead. \n"
                     + "Oh well maybe next time you'll think of a better adjective to describe yourself... \n"
                     + "You know what they say:");
-            try
-            {
+            try {
                 Thread.sleep(9000);
-            }
-            catch(InterruptedException ex)
-            {
+            } catch (InterruptedException ex) {
                 Thread.currentThread().interrupt();
             }
             System.out.println("Holy cow!");
@@ -161,44 +143,154 @@ public class TheGame {
         }
 
         //when the user chooses Jaden Smith as their personality
-        if(personality.equalsIgnoreCase("Willy Wonka"))
-        {
+        if (personality.equalsIgnoreCase("Willy Wonka")) {
             System.out.println("You signed up for Tinder and described yourself as \"Willy Wonka\".");
-            System.out.println("You arrived at the restaurant and you see your attractive date. You walk up to them and start a converstation/n" +
-                    "about candy and your date seems very interested. ");
+            System.out.println("You arrived at the restaurant and you see your attractive date. You walk up to them and start a conversation\n" +
+                    "about candy and your date seems very interested.\n");
             System.out.println(wWComp.toStringComp());
             System.out.println(theOne);
             System.out.println("You take a step, and look them straight in the eye. ");
             System.out.println("Do you believe this situation is serious?");
             Scanner serious = new Scanner(System.in);
             String serius = serious.nextLine();
-            if(serius.equalsIgnoreCase("Yes"))
-            {
+            if (serius.equalsIgnoreCase("Yes")) {
                 System.out.println("What should you do next?\n" +
-                        "1.) Go to the bathroom\n " +
+                        "1.) Go to the bathroom\n" +
                         "2.) Sit between the competitor and your date\n" +
                         "3.) Throw an onion at your competitor\n");
                 Scanner userResponse = new Scanner(System.in);
                 int answer1 = userResponse.nextInt();
-                if(answer1 == 2){
+                if (answer1 == 2) {
                     System.out.println("Good job! you win this one...");
+                } else if (answer1 == 1) {
+                    System.out.println("Wrong choice, you should've sat between the competitor and your date. While you were in the bathroom your competitor\n" +
+                            "managed to impress your date and steal them from you. When you finally come out of the bathroom, your date apologizes and says\n" +
+                            "that unfortunately it's not gonna work. Out of embarrassment you offer to pay for the meal and your date agrees. Now you don't even\n" +
+                            "have money to take the taxi home and you have to walk. And of course it's raining... When you get home all of your clothes are wet and\n" +
+                            "you feel sad. What a terrible day...\n");
+                    end(20, user);
+                    if (user.getHealth() == 0) {
+                        System.out.println("You died!! ");
+                        System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely and sad that you're not\n" +
+                                "in a romantic relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                                "highschool relationships ending in marriage your chances of finding your true love in highschool are pretty low...");
+                    }
+                    else{
+                        //situation that happens after he goes home
+                    }
+                    try {
+                        Thread.sleep(7000);
+                    } catch (InterruptedException ex) {
+                        Thread.currentThread().interrupt();
+                    }
+                } else if (answer1 == 3) {
+                    System.out.println("OHHHH nooo!! You decide to throw the onion at your competitor and completely forget that for the past\n" +
+                            "2 months you have actually stuck to your diet and been working out. So when you throw the onion you end up hitting them\n" +
+                            "pretty bad right in the face. Soon the police is called and you get taken to jail.\n");
+                    end(20, user);
+                    if (user.getHealth() == 0) {
+                        System.out.println("You died!! ");
+                        System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely and sad that you're not\n" +
+                                "in a romantic relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                                "highschool relationships ending in marriage your chances of finding your true love in highschool are pretty low...");
+                    }
+                    else {
+                        try {
+                            Thread.sleep(7000);
+                        } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                        }
+                        System.out.println("It's 10:15pm and you have just been driven to the nearest jail. You notice that one of the jail cells is empty\n" +
+                                "and ask the guards to place you there. They ask you why but you decide not to give any specific reason in case you will be placed\n" +
+                                "in a group cell later, you don't want to give out any information that could be used against you.\n");
+                        try {
+                            Thread.sleep(9000);
+                        } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                        }
+                        System.out.println("It's getting later now so you decide to go to sleep. What should you do?\n" +
+                                "1.) Sit on the floor in the corner with your back to the wall and don't take off any of your things.\n" +
+                                "2.) Lie down on the bench or cot without saying anything to the inmates next to you to show dominance.\n" +
+                                "3.) Don't sleep you have to stay alert");
+                        int answer2 = userResponse.nextInt();
+                        if (answer2 == 1) {
+                            System.out.println("Great job, by staying in the corner of the room and not taking off any clothes you don't allow the inmates to\n" +
+                                    "play any tricks on you or take any of your stuff(I know it's wrong to assume that people are jerks but according to the book\n" +
+                                    "you can't be careful enough in jail).");
+                            try {
+                                Thread.sleep(7000);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
+                            System.out.println("You survive the night, the next day your dad bails you out of jail and you go home.\n");
+                            end(20, user);
+                            if (user.getHealth() == 0) {
+                                System.out.println("You died!! ");
+                                System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely and sad that you're not\n" +
+                                        "in a romantic relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                                        "highschool relationships ending in marriage your chances of finding your true love in highschool are pretty low...");
+                            }
+                        }
+                        if (answer2 == 2) {
+                            System.out.println("Wrong choice, when you lie down on the bench or cot without saying anything you're not showing dominance\n" +
+                                    "you're giving your fellow inmates a reason to pick on you or claim that you're lying down on their bunk.(I know it's wrong to assume\n" +
+                                    "that people are jerks but according to the book you can't be careful enough in jail)");
+                            try {
+                                Thread.sleep(7000);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
+                            System.out.println("As you lie down on the bench, someone comes up to you and tells you that it's their spot. You're too tired to argue so you get\n" +
+                                    "up, but for the rest of the time there people call you \"stinky socks\" because you left them lying out beside the bench when you went to sleep.\n");
+                            System.out.println("The next day your dad bails you out of jail and you get to go home, but for some reason your dad cannot get \"stinky socks\" out of his head\n" +
+                                    "and now you have a new nickname\n");
+                            end(20, user);
+                            if (user.getHealth() == 0) {
+                                System.out.println("You died!! ");
+                                System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely and sad that you're not\n" +
+                                        "in a romantic relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                                        "highschool relationships ending in marriage your chances of finding your true love in highschool are pretty low...");
+                            }
+                        }
+                        if (answer2 == 3) {
+                            System.out.println("You decide not to sleep and so you stay up all night. The next day you walk to the bathroom and brush your teeth with a toothbrush but it\n" +
+                                    "turns out it wasn't yours. You were so tired that you didn't even notice. Unfortunately everyone else did. Now everyone thinks you're weird and like using other's\n" +
+                                    "toothbrushes. Great!\n");
+                            try {
+                                Thread.sleep(7000);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
+                            System.out.println("The next day your dad bails you out of jail and you get to go home. You were so happy, that was until your dad overheard the story\n" +
+                                    "about the toothbrush and told it to everyone he knew, now this story haunts you every Thanksgiving.\n");
+                            end(20, user);
+                            if (user.getHealth() == 0) {
+                                System.out.println("You died!! ");
+                                System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely and sad that you're not\n" +
+                                        "in a romantic relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                                        "highschool relationships ending in marriage your chances of finding your true love in highschool are pretty low...");
+                            }
+                        }
+                    }
                 }
-                else user.setHealth(20);
             }
             //System.out.println(Situations.situation1);
         }
-        if(personality.equalsIgnoreCase("attractive"))
-        {
+        if (personality.equalsIgnoreCase("attractive")) {
             System.out.println("");
         }
-        if(personality.equalsIgnoreCase("weird"))
-        {
+        if (personality.equalsIgnoreCase("weird")) {
             System.out.println("");
         }
-        if(personality.equalsIgnoreCase("quirky"))
-        {
+        if (personality.equalsIgnoreCase("quirky")) {
             System.out.println("");
         }
+    }
 
+    public static void end(int decrease, Single s) {
+        if (s.getHealth() > 0 && decrease <= s.getHealth()) {
+            s.setHealth(s.getHealth() - decrease);
+        }
+        System.out.println("Health: " + s.getHealth());
     }
 }
