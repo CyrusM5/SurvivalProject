@@ -247,8 +247,28 @@ public class TheGame {
       }
       
     }
-    if (personality.equalsIgnoreCase("attractive")) {
-      System.out.println("");
+     if (personality.equalsIgnoreCase("attractive")) {
+      Situations tree = new Situations("", ""); //im so confused as to why i had to put these two string parameters in seems kinda redundant.
+      System.out.println(tree.toStringAttractive());
+     
+      Scanner userResponseAtt = new Scanner(System.in);
+      int answerAtt = userResponseAtt.nextInt();
+      
+      try {
+        Thread.sleep(2000);
+      } catch (InterruptedException ex) {
+        Thread.currentThread().interrupt();
+      }
+      
+      System.out.println(tree.nextSitForAtt(answerAtt));
+      
+      if(answerAtt==1)
+      {
+      Scanner userResponseAtt1 = new Scanner(System.in);
+      int answerAtt1 = userResponseAtt.nextInt();
+      System.out.println(tree.nextSitForAtt1(answerAtt1));
+      }
+    //not done yet but made some progress:)
     }
     if (personality.equalsIgnoreCase("weird")) {
       System.out.println("");
