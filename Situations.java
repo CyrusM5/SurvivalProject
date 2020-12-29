@@ -53,7 +53,7 @@ public class Situations {
       + "\n2.\"You are a great and lovely person but we just are not meant to be.\"\n3.\"I'm going to be honest. You ugly as hell.\"";
     //2nd situation
     String attractiveUPAYO1 = "That was a terrible choice. Now, you have spent 2 miserable weeks and you hate how this person never "
-      + "thinks. You suspect they are mentally retarded. You decide to break up with them. But how?\n1.You treat the person to a nice "
+      + "thinks. You suspect they are mentally retarded. You decide to break up with them. But how?\n1. You treat the person to a nice "
       + "3-meal course. At the end, you say all the usual break-up \"It's not you, it's me and blah blah....\" and you break up!"
       + "\n2. Hey, it is December 24th! So, if you break up now, over text, they'll get over it by the time schools open up and "
       + "you see them again!\n3. Meet with them face-to-face and tell them straight up that you will not date them.";
@@ -84,7 +84,7 @@ public class Situations {
       + "stuff. \n3. Type up a suicide letter and post it and lay low for a while.";
     //Yes. Yet another 3rd situation.
     String attractiveUPAYO13 = "Ok, I think that went well. They seem, sad-ish but it's all rad-ish! Hey, this is weird: The person that you "
-      + "rejected has called you 18 times while you were asleep. Oh no, this seems like the classic case of an obsessive ex. Sorry to tell you, "
+      + "rejected has called you 18 times while you were asleep. Oh no, this seems like a classic case of an obsessive ex. Sorry to tell you, "
       + "but it doesn't seem like it's stopping anytime soon. What do you do?\n1. DM them:\"AHHHHHHHH! STOOOOP! please?\"\n2. Meet with them "
       + "and try to reason and say you don't want them to call you anymore.\n3. Tell them you will call the authorities next time they call "
       + "you or contact you in any way.";
