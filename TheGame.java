@@ -23,15 +23,26 @@ public class TheGame {
     Single arina = new Single("Arina", 200, arinaInterests);
     Single halil = new Single("Halil", 199, halilInterests);
     Single user = new Single("", 500, userInterests);//this is the main character
-    Competitor theOne;
-    //set the Competitor for the rest of the game
-    int random = randomGenerator(0, 10);
-    if (random % 5 == 0) {
-      theOne = new Competitor(cyrus.getHealth(), cyrus.getName());
-    } else if (random % 2 == 0) {
-      theOne = new Competitor(arina.getHealth(), arina.getName());
-    } else {
-      theOne = new Competitor(halil.getHealth(), halil.getName());
+    Competitor theOne = new Competitor(0, "");
+    int count = 0;
+    int random = randomGenerator(100, 1);
+    Single [] competitors = {arina, cyrus, halil};
+    
+    
+    //generates a random competitor based on whether or not a random number divided by the health generates a
+    //certain remainder.
+    for(Single i: competitors){
+      int number = i.getHealth()%random;
+      if(number == 0 || number == 1 || number == 2 || number == 3){
+          theOne.setHealth(i.getHealth());
+          theOne.setName(i.getName());
+          break;
+      }
+      if(count == 2 &&(theOne.getHealth() == 0)){
+          theOne.setHealth(i.getHealth());
+          theOne.setName(i.getName());
+      }
+      count++;
     }
     
     //Introduction
