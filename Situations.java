@@ -103,7 +103,7 @@ public class Situations {
       + "just leaves without answering your question. You are humiliated. No one thinks of you as an attractive person anymore, they just "
       + "think of you as 'the pervert'. How will you restore your reputation? \n1. Make a public apology through your social media.\n2. "
       + "Try to justify the situation by saying you were playing truth or dare with your friends and they dared you and you had to do it to "
-      + "win the game.\n3. Kill yourself.";
+      + "win the game.\n3. Commit wire fraud.";
     String attractiveUPAYO31 = "This choice does seem like a pretty great one but don't forget, we are talking about the internet. No one has "
       + "forgiven you. You still get clown emojis in your messages. You are fed up with this. What do you do?\n1. Stop using social media for "
       + "a few weeks.\n2. Try to explain the situation from your perspective.\n3. Start an online bullying campaign against this so-called "
@@ -119,8 +119,8 @@ public class Situations {
       + "You accept your punishment.\n2. Escape through the window and hope your parents don't wake up and check on you.\n3. Join the party "
       + "through Zoom.";
     //All the endings. I am assuming they will be about a sentence or two each. Or they will be about a paragraph depending on what I decide.
-    String attractiveUPAYO111 = "";
-    String attractiveUPAYO112 = "";
+    String attractiveUPAYO111 = "Wow you handled that so bad, your reputation is ruined.";
+    String attractiveUPAYO112 = "They don't stop calling you, driving you deeper and deeper into madness; the restrating order has not helped.";
     String attractiveUPAYO113 = "";
     String attractiveUPAYO121 = "";
     String attractiveUPAYO122 = "";
