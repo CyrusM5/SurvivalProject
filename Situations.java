@@ -88,7 +88,66 @@ public class Situations {
       + "but it doesn't seem like it's stopping anytime soon. What do you do?\n1. DM them:\"AHHHHHHHH! STOOOOP! please?\"\n2. Meet with them "
       + "and try to reason and say you don't want them to call you anymore.\n3. Tell them you will call the authorities next time they call "
       + "you or contact you in any way.";
-    //Still have to do the 3rd situation for the other 6 possibilities but not now
+    //All the remaining are third if there are two digits after attractiveUPAYO. The rest will be the endings.
+    String attractiveUPAYO21 = "Hey, that was smart! Usually, asking outright leads to awkward moments and swift rejections, but how can "
+      + "anyone reject someone with such good looks? Anyways, they said yes and you took them out to a restaurant called Sofa King for a "
+      + "date. But wait a minute, what is that smell? You realize that you put on the wrong undershirt and now, you stink! Luckily, your date "
+      + "hasn't noticed yet, but it is only a matter of time. What do you do next?\n1. Keep your distance for the whole date and hope for the "
+      + "best.\n2. Excuse yourself and escape through the bathroom window. From there, make a run for the nearest drugstore and buy the best-"
+      + "looking perfume.\n3. End the date immediately and run home.(Your personal image is more important than a crush, after all)";
+    String attractiveUPAYO22 = "You know what? That was a sensible choice. However, your \"subtle hints\" did not work and now, your crush has "
+      + "a partner. I guess the lesson we can learn from this is to be direct and brave. How will you get your crush back?\n1. Follow the "
+      + "relationship very closely and make your move when they break up.\n2. Sabotage the relationship by spreading false rumors. \n3. Talk "
+      + "to your crush and tell them how you truly feel.";
+    String attractiveUPAYO23 = "Woah, woah, woah. Hold your horses! You can't just do that. Your crush is overwhelmed with surprise and "
+      + "just leaves without answering your question. You are humiliated. No one thinks of you as an attractive person anymore, they just "
+      + "think of you as 'the pervert'. How will you restore your reputation? \n1. Make a public apology through your social media.\n2. "
+      + "Try to justify the situation by saying you were playing truth or dare with your friends and they dared you and you had to do it to "
+      + "win the game.\n3. Kill yourself.";
+    String attractiveUPAYO31 = "This choice does seem like a pretty great one but don't forget, we are talking about the internet. No one has "
+      + "forgiven you. You still get clown emojis in your messages. You are fed up with this. What do you do?\n1. Stop using social media for "
+      + "a few weeks.\n2. Try to explain the situation from your perspective.\n3. Start an online bullying campaign against this so-called "
+      + "\"social media influencer\".";
+    String attractiveUPAYO32 = "Hey, this is the correct choice! By saying undecipherable stuff, you give off weird vibes and now, no one "
+      + "messes with you. However, there is a downside to being so weird. Now, no one thinks of you as the attractive one in their class. They "
+      + "see you as the weird kid and they fear you. No one wants to be your friend. How do you fix this?\n1. Embrace this new weird kid mentality."
+      + "\n2. Attend that party your \"friend\" was begging you to go with. \n3. Transfer schools.";
+    String attractiveUPAYO33 = "Are you trolling right now? What exactly do you plan to accomplish by faking your death? You eventually have to go "
+      + "to school. Also, the principal of your school was notified of this \"suicide note\" and contacted your parents. Your parents grounded you "
+      + "for a year. After a few months, you learn from your friend about this great party and you hear your crush will be there. The party is at "
+      + "11:00 PM. Problem is, you are still grounded and your parents still haven't forgotten the incident. How do you escape?\n1. You don't escape. "
+      + "You accept your punishment.\n2. Escape through the window and hope your parents don't wake up and check on you.\n3. Join the party "
+      + "through Zoom.";
+    //All the endings. I am assuming they will be about a sentence or two each. Or they will be about a paragraph depending on what I decide.
+    String attractiveUPAYO111 = "";
+    String attractiveUPAYO112 = "";
+    String attractiveUPAYO113 = "";
+    String attractiveUPAYO121 = "";
+    String attractiveUPAYO122 = "";
+    String attractiveUPAYO123 = "";
+    String attractiveUPAYO131 = "";
+    String attractiveUPAYO132 = "";
+    String attractiveUPAYO133 = "";
+    String attractiveUPAYO211 = "";
+    String attractiveUPAYO212 = "";
+    String attractiveUPAYO213 = "";
+    String attractiveUPAYO221 = "";
+    String attractiveUPAYO222 = "";
+    String attractiveUPAYO223 = "";
+    String attractiveUPAYO231 = "";
+    String attractiveUPAYO232 = "";
+    String attractiveUPAYO233 = "";
+    String attractiveUPAYO311 = "";
+    String attractiveUPAYO312 = "";
+    String attractiveUPAYO313 = "";
+    String attractiveUPAYO321 = "";
+    String attractiveUPAYO322 = "";
+    String attractiveUPAYO323 = "";
+    String attractiveUPAYO331 = "";
+    String attractiveUPAYO332 = "";
+    String attractiveUPAYO333 = "";
+    
+    
     //Now, the methods so that I can actually call these in the main class
     public String toStringAttractive()
     {
@@ -127,5 +186,192 @@ public class Situations {
         return attractiveUPAYO13;
       }
      return "I love teddy bears especially human sized ones"; //ignore this I had to write something 
+    }
+    
+    public String nextSitForAtt2(int a)
+    {
+      if(a==1)
+      {
+        return attractiveUPAYO21;
+      }
+      if(a==2)
+      {
+        return attractiveUPAYO22;
+      }
+      if(a==3)
+      {
+        return attractiveUPAYO23;
+      }
+        return "Teddy bears are the greatest gifts known to mankind"; //ignore this I had to write something
+    }
+    
+    public String nextSitForAtt3(int a)
+    {
+      if(a==1)
+      {
+        return attractiveUPAYO31;
+      }
+      if(a==2)
+      {
+        return attractiveUPAYO32;
+      }
+      if(a==3)
+      {
+        return attractiveUPAYO33;
+      }
+        return "Teddy bears are the greatest gifts known to mankind"; //ignore this I had to write something
+    }
+    //All methods below this are for the endings. These haven't been used in the main method yet.
+    public String nextSitForAtt11(int a)
+    {
+      if(a==1)
+      {
+        return attractiveUPAYO111;
+      }
+      if(a==2)
+      {
+        return attractiveUPAYO112;
+      }
+      if(a==3)
+      {
+        return attractiveUPAYO113;
+      }
+        return "Teddy bears are the greatest gifts known to mankind"; //ignore this I had to write something
+    }
+    
+    public String nextSitForAtt12(int a)
+    {
+      if(a==1)
+      {
+        return attractiveUPAYO121;
+      }
+      if(a==2)
+      {
+        return attractiveUPAYO122;
+      }
+      if(a==3)
+      {
+        return attractiveUPAYO123;
+      }
+        return "Teddy bears are the greatest gifts known to mankind"; //ignore this I had to write something
+    }
+    
+    public String nextSitForAtt13(int a)
+    {
+      if(a==1)
+      {
+        return attractiveUPAYO131;
+      }
+      if(a==2)
+      {
+        return attractiveUPAYO132;
+      }
+      if(a==3)
+      {
+        return attractiveUPAYO133;
+      }
+        return "Teddy bears are the greatest gifts known to mankind"; //ignore this I had to write something
+    }
+    
+    public String nextSitForAtt21(int a)
+    {
+      if(a==1)
+      {
+        return attractiveUPAYO211;
+      }
+      if(a==2)
+      {
+        return attractiveUPAYO212;
+      }
+      if(a==3)
+      {
+        return attractiveUPAYO213;
+      }
+        return "Teddy bears are the greatest gifts known to mankind"; //ignore this I had to write something
+    }
+    
+    public String nextSitForAtt22(int a)
+    {
+      if(a==1)
+      {
+        return attractiveUPAYO221;
+      }
+      if(a==2)
+      {
+        return attractiveUPAYO222;
+      }
+      if(a==3)
+      {
+        return attractiveUPAYO223;
+      }
+        return "Teddy bears are the greatest gifts known to mankind"; //ignore this I had to write something
+    }
+    
+    public String nextSitForAtt23(int a)
+    {
+      if(a==1)
+      {
+        return attractiveUPAYO231;
+      }
+      if(a==2)
+      {
+        return attractiveUPAYO232;
+      }
+      if(a==3)
+      {
+        return attractiveUPAYO233;
+      }
+        return "Teddy bears are the greatest gifts known to mankind"; //ignore this I had to write something
+    }
+    
+    public String nextSitForAtt31(int a)
+    {
+      if(a==1)
+      {
+        return attractiveUPAYO311;
+      }
+      if(a==2)
+      {
+        return attractiveUPAYO312;
+      }
+      if(a==3)
+      {
+        return attractiveUPAYO313;
+      }
+        return "Teddy bears are the greatest gifts known to mankind"; //ignore this I had to write something
+    }
+    
+    public String nextSitForAtt32(int a)
+    {
+      if(a==1)
+      {
+        return attractiveUPAYO321;
+      }
+      if(a==2)
+      {
+        return attractiveUPAYO322;
+      }
+      if(a==3)
+      {
+        return attractiveUPAYO323;
+      }
+        return "Teddy bears are the greatest gifts known to mankind"; //ignore this I had to write something
+    }
+    
+    public String nextSitForAtt33(int a)
+    {
+      if(a==1)
+      {
+        return attractiveUPAYO331;
+      }
+      if(a==2)
+      {
+        return attractiveUPAYO332;
+      }
+      if(a==3)
+      {
+        return attractiveUPAYO333;
+      }
+        return "Teddy bears are the greatest gifts known to mankind"; //ignore this I had to write something
     }
 }
