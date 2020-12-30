@@ -265,21 +265,80 @@ public class TheGame {
       Scanner userResponseAtt = new Scanner(System.in);
       int answerAtt = userResponseAtt.nextInt();
       
-      try {
-        Thread.sleep(2000);
-      } catch (InterruptedException ex) {
-        Thread.currentThread().interrupt();
-      }
-      
       System.out.println(tree.nextSitForAtt(answerAtt));
       
       if(answerAtt==1)
       {
-      Scanner userResponseAtt1 = new Scanner(System.in);
-      int answerAtt1 = userResponseAtt.nextInt();
-      System.out.println(tree.nextSitForAtt1(answerAtt1));
+        Scanner userResponseAtt1 = new Scanner(System.in);
+        int answerAtt1 = userResponseAtt.nextInt();
+        System.out.println(tree.nextSitForAtt1(answerAtt1));
+        if(answerAtt1==1)
+        {
+          Scanner userResponseAtt11 = new Scanner(System.in);
+          int answerAtt11 = userResponseAtt.nextInt();
+          System.out.println(tree.nextSitForAtt11(answerAtt11));
+        }
+        if(answerAtt1==2)
+        {
+          Scanner userResponseAtt12 = new Scanner(System.in);
+          int answerAtt12 = userResponseAtt.nextInt();
+          System.out.println(tree.nextSitForAtt12(answerAtt12));
+        }
+        if(answerAtt1==3)
+        {
+          Scanner userResponseAtt13 = new Scanner(System.in);
+          int answerAtt13 = userResponseAtt.nextInt();
+          System.out.println(tree.nextSitForAtt13(answerAtt13));
+        }
       }
-    //not done yet but made some progress:)
+      if(answerAtt==2)
+      {
+        Scanner userResponseAtt2 = new Scanner(System.in);
+        int answerAtt2 = userResponseAtt.nextInt();
+        System.out.println(tree.nextSitForAtt2(answerAtt2));
+        if(answerAtt2==1)
+        {
+          Scanner userResponseAtt21 = new Scanner(System.in);
+          int answerAtt21 = userResponseAtt.nextInt();
+          System.out.println(tree.nextSitForAtt21(answerAtt21));
+        }
+        if(answerAtt2==2)
+        {
+          Scanner userResponseAtt22 = new Scanner(System.in);
+          int answerAtt22 = userResponseAtt.nextInt();
+          System.out.println(tree.nextSitForAtt22(answerAtt22));
+        }
+        if(answerAtt2==3)
+        {
+          Scanner userResponseAtt23 = new Scanner(System.in);
+          int answerAtt23 = userResponseAtt.nextInt();
+          System.out.println(tree.nextSitForAtt23(answerAtt23));
+        }
+      }
+      if(answerAtt==3)
+      {
+        Scanner userResponseAtt3 = new Scanner(System.in);
+        int answerAtt3 = userResponseAtt.nextInt();
+        System.out.println(tree.nextSitForAtt3(answerAtt3));
+        if(answerAtt3==1)
+        {
+          Scanner userResponseAtt31 = new Scanner(System.in);
+          int answerAtt31 = userResponseAtt.nextInt();
+          System.out.println(tree.nextSitForAtt31(answerAtt31));
+        }
+        if(answerAtt3==2)
+        {
+          Scanner userResponseAtt32 = new Scanner(System.in);
+          int answerAtt32 = userResponseAtt.nextInt();
+          System.out.println(tree.nextSitForAtt32(answerAtt32));
+        }
+        if(answerAtt3==3)
+        {
+          Scanner userResponseAtt33 = new Scanner(System.in);
+          int answerAtt33 = userResponseAtt.nextInt();
+          System.out.println(tree.nextSitForAtt33(answerAtt33));
+        }
+      }
     }
     if (personality.equalsIgnoreCase("weird")) {
       System.out.println("");
