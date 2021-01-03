@@ -1,10 +1,10 @@
 import java.util.*;
 public class TheGame {
-  public static int randomGenerator(int max, int min) {
+  private static int randomGenerator(int max, int min) {
     return (int) ((Math.random() * (max - min)) + 1) + min;
   }
-  
   public static void main(String[] args) {
+    Person mrP = new Person();
     Situations wWComp = new Situations("you're smiling too much, and are scaring away your date.", "Willy Wonka");
     Situations wWPanic = new Situations("you realize you'll have to find time for the Wonka Factroy, Oompa Loompas and your new spouse.", "Willy Wonka");
     Situations wWBreak = new Situations("you're afraid you'll smile too much, and will scare everyone at the wedding.", "Willy Wonka");
@@ -14,7 +14,8 @@ public class TheGame {
     int score = 0;
     int scores[] = new int [5];
     String[] goodArray = {"Leans in", "Makes good eye contact", "Moves when you do", "Parts lips", "Touches face, cheek", "Twirls hair"};
-    String[] badArray = {"Clenches jaw", "Holds finger to chin or lips", "Look away", "Rubs neck or head", "Shifts weight", "Slouches"};
+    String[] badArray = {"Clenches jaw", "Holds finger to chin or lips", "Look away", "Rubs neck or head", "Shifts weight", "Slouches",};
+   
     String[] cyrusInterests = {"Philosophy", "Whale Riding"};
     String[] arinaInterests = {"Philosophy", "Bear Wrestling"};
     String[] halilInterests = {"Poetry", "Football"};
@@ -27,7 +28,6 @@ public class TheGame {
     int count = 0;
     int random = randomGenerator(100, 1);
     Single [] competitors = {arina, cyrus, halil};
-    
     
     //generates a random competitor based on whether or not a random number divided by the health generates a
     //certain remainder.
@@ -51,7 +51,10 @@ public class TheGame {
     //List characters here
     Scanner character = new Scanner(System.in);
     String name = character.nextLine();
-    
+    goodArray = mrP.shiftArr(goodArray);
+    badArray = mrP.shiftArr(badArray);
+    goodArray = mrP.revArr(goodArray); 
+    badArray = mrP.revArr(badArray);
     //Sets the name for User and explains directions.
     user.setName(name);
     System.out.println(user.getName() + ", welcome to the simulation!");
@@ -60,10 +63,13 @@ public class TheGame {
     System.out.println("Please press any key to continue.");
     character = new Scanner(System.in);
     String enter = character.nextLine();
-    Person mrP = new Person();
     score = 0;
     score = mrP.goodOrBad(goodArray, badArray);
-    System.out.println(score);
+    double average = 0;
+    average = mrP.avErage(mrP.getNArr());
+    int mode = 0;
+    mode = mrP.moDe(mrP.getNArr());
+    //System.out.println(score);
     //System.out.println(mrP.getNArr());
     for (int i = 0; i < mrP.getNArr().length; i++){
       System.out.print(mrP.getNArr()[i]+" ");
@@ -355,3 +361,4 @@ public class TheGame {
     System.out.println("Health: " + s.getHealth());
   }
 }
+ 
