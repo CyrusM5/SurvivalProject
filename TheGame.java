@@ -51,8 +51,11 @@ public class TheGame {
     //List characters here
     Scanner character = new Scanner(System.in);
     String name = character.nextLine();
-    goodArray = mrP.revArr(goodArray); 
+    goodArray = mrP.shiftArr(goodArray, randomGenerator(0,10)); 
+    badArray = mrP.shiftArr(badArray, randomGenerator(0,10));
+    goodArray = mrP.revArr(goodArray);
     badArray = mrP.revArr(badArray);
+    //goodArray = mrP.shiftArr(goodArray);
     //Sets the name for User and explains directions.
     user.setName(name);
     System.out.println(user.getName() + ", welcome to the simulation!");
