@@ -12,6 +12,22 @@ public class Person
     }
     return array;
   }
+  public String[] shiftArr(String[] input, int times){
+    for(int i = 0; i < times; i++){    
+            int j;
+            String last;    
+            //Stores the last element of array    
+            last = input[input.length-1];    
+            
+            for(j = input.length-1; j > 0; j--){    
+                //Shift element of array by one    
+                input[j] = input[j-1];    
+            }    
+            //Last element of array will be added to the start of array.    
+            input[0] = last;    
+        }
+    return input;
+  }
   public int moDe (int[] input){
     //String inputS = Integer.toString(input);
     int frQu = 0;
