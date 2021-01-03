@@ -51,8 +51,6 @@ public class TheGame {
     //List characters here
     Scanner character = new Scanner(System.in);
     String name = character.nextLine();
-    goodArray = mrP.shiftArr(goodArray);
-    badArray = mrP.shiftArr(badArray);
     goodArray = mrP.revArr(goodArray); 
     badArray = mrP.revArr(badArray);
     //Sets the name for User and explains directions.
