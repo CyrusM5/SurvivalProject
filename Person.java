@@ -3,26 +3,12 @@ public class Person
 {
   public String[] revArr(String[] input){
     String[] array = new String[input.length];
+    int temp;
     int a = 0;
     for (int i = input.length-1; i >= 0; i--)
     {
       array[a] = input[i];
       a++;
-    }
-    return array;
-  }
-  public String[] shiftArr(String[] input){
-    String[] array = new String[input.length];
-    int a = 0;
-    for (int i = input.length-1; i >= 0; i--)
-    {
-      if (i+1>=input.length){
-        array[a]=input[0];
-      }
-      else{
-        array[a]=input[i+1];
-      }
-      
     }
     return array;
   }
