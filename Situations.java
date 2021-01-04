@@ -8,11 +8,6 @@ public class Situations {
 
 
     String comp = "Oh no! A competitor has arrived!";
-    String panic = "Oh no! You're having a panic attack!";
-    String breakdown = "Oh no! You're on the verge of a nervous breakdown!";
-    String honeymoon1 = "Oh no! Your spouse suffered extreme sunburn!";
-    String honeymoon2 = "Oh no! Your spouse suffered an acute tounge injury!";
-    String anniversary = "Oh no! You forgot your anniversary!";
     private String iIncident;
     private String character;
     public static int storyScore;
@@ -24,22 +19,6 @@ public class Situations {
     public String toStringComp(){
         return this.character + ", " + this.iIncident + " " + comp;
     }
-    public String toStringPanic(){
-        return this.character + ", " + this.iIncident + " " + panic;
-    }
-    public String toStringBreak(){
-        return this.character + ", " + this.iIncident + " " + breakdown;
-    }
-    public String toStringHoneymoon1(){
-        return this.character + ", " + this.iIncident + " " + honeymoon1;
-    }
-    public String toStringHoneymoon2(){
-        return this.character + ", " + this.iIncident + " " + honeymoon2;
-    }
-    public String toStringAnniversary(){
-        return this.character + ", " + this.iIncident + " " + anniversary;
-    }
-    //anniversary
     
     //I decided to do my situations here for now because the main class has started to look really messy.
     //All the situations for attractive personality and how it will be ordered.
