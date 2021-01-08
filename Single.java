@@ -11,6 +11,11 @@ public class Single {
         health = h;
         String[] interests = i;
     }
+    public Single(String n, int h)
+    {
+      this.name = n;
+      this.health = h;
+    }
 
     public Single() {
 
