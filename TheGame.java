@@ -5,7 +5,7 @@ public class TheGame {
    * @param min the minimum number
    * @return a randomly generated number based on the given range
    */
-  private static int randomGenerator(int max, int min) {
+  public static int randomGenerator(int max, int min) {
     return (int) ((Math.random() * (max - min)) + 1) + min;
   }
   
