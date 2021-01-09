@@ -9,6 +9,34 @@ public class TheGame {
     return (int) ((Math.random() * (max - min)) + 1) + min;
   }
   
+  public static int findMinDigit(int a)
+  {
+    int b = 9;
+    while (a > 0)
+    {
+      if (a%10 < b)
+      {
+        b = a%10;
+      }
+      a = a/10;
+    }
+    return b;
+  }
+  
+  public static int setStartingScore(int largeNumber, int digit)
+  {
+    int finalNumber = 0;
+    int d = String.valueOf(largeNumber).length();
+    d = d-digit;
+    while (d > 0)
+    {
+      finalNumber = largeNumber%10;
+      largeNumber = largeNumber/10;
+      d--;
+    }
+    return finalNumber*100;
+  }
+  
   /**
    * decreases the health of the given character
    * @param decrease number by which the health decreases
@@ -65,12 +93,15 @@ public class TheGame {
     //goodArray = mrP.shiftArr(goodArray);
     //************************************************************************************************************************************
     
+    int assist = findMinDigit(randomGenerator(Integer.MAX_VALUE, 0));
+    int userStartingScore = setStartingScore(Integer.MAX_VALUE, assist);
+    
     //all the characters in the game
     String[] userInterests = {};
     Single cyrus = new Single("Cyrus", 250);
     Single arina = new Single("Arina", 200);
     Single halil = new Single("Halil", 199);
-    Single user = new Single("", 500, userInterests);//this is the main character
+    Single user = new Single("", userStartingScore, userInterests);//this is the main character
     Competitor theCompetitor = new Competitor(0, "");
     int count = 0;
     int random = randomGenerator(100, 1);
