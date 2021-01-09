@@ -80,35 +80,56 @@ public class Person
     int inT = 0;
     for (int i = 0; i < (a.length+b.length)/2; i++)
     {
-      System.out.println(a[i]);
+      boolean validAnswer = false;
+      while(validAnswer == false){
+      System.out.println("Your date: "+a[i]+" - good or bad?");
       String good = minigame.nextLine();
       if (good.equalsIgnoreCase("good"))
       {
+        validAnswer = true;
         mGScore++;
         cAns++;
         nums[inT] = 1;
         inT++;
       }
-      else{
+      else if (good.equalsIgnoreCase("bad"))
+      {
+        validAnswer = true;
         wAns++;
         nums[inT] = 0;
         inT++;
       }
-      System.out.println(b[i]);
+      else
+      {
+        validAnswer = false;
+        System.out.println("Please enter an appropriate answer.");
+      }
+      }
+      boolean validAnswer2 = false;
+      while(validAnswer2 == false){
+      System.out.println("Your date: "+b[i]+" - good or bad?");
       String bad = minigame.nextLine();
       if (bad.equalsIgnoreCase("bad"))
       {
+        validAnswer2 = true;
         mGScore++;
         cAns++;
         nums[inT] = 1;
         inT++;
       }
-      else{
+      else if (bad.equalsIgnoreCase("good"))
+      {
+        validAnswer2 = true;
         wAns++;
         nums[inT] = 0;
         inT++;
       }
-      
+      else
+      {
+        validAnswer2 = false;
+        System.out.println("Please enter an appropriate answer.");
+      }
+      }
     }
     System.out.println("You scored a "+mGScore+" out of "+(wAns+cAns)+".");
     return mGScore;
