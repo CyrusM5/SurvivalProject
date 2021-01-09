@@ -352,4 +352,21 @@ public class Situations extends TheGame {
             System.out.println(attractiveUPAYO333);
         }
     }
+    public static int decScore(Single user){
+    int[] nums = new int[10];
+    for(int i = 0; i<nums.length; i++){
+        nums[i] = randomGenerator(user.getHealth(),5);
+    }
+    int max = 0;
+    int min = Integer.MAX_VALUE;
+    for(int i = 0; i<nums.length; i++){
+        if(nums[i]> max){
+            max = nums[i];
+        }
+        else if(nums[i]< min){
+            min = nums[i];
+        }
+    }
+    return max - min;
+    }
 }
