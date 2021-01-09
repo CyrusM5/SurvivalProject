@@ -134,7 +134,7 @@ public class TheGame {
     //System.out.println("In one (or two) word(s), how would you describe yourself? Choose from the following options:\nnice, Willy Wonka, attractive, weird, quirky");
     //String personality = character.nextLine();
     String personality = "";
-    personality = mrP.vAnswer("In one (or two) word(s), how would you describe yourself? Choose from the following options:\nnice, Willy Wonka, attractive, weird, quirky");
+    personality = mrP.vAnswer("In one (or two) word(s), how would you describe yourself? Choose from the following options:\nnice, Willy Wonka, attractive");
     //when the user chooses nice********************************************************************************************************************************************
     if (personality.equalsIgnoreCase("nice")) {
       //boolean validAnswer = true;
@@ -409,15 +409,6 @@ public class TheGame {
         }
       }
       //*********************************************************************************************************************************************************************
-      
-      if (personality.equalsIgnoreCase("weird")) {
-        //validAnswer = true;
-        System.out.println("");
-      }
-      if (personality.equalsIgnoreCase("quirky")) {
-        //validAnswer = true;
-        System.out.println("");
-      }
     }
     
   }
