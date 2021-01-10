@@ -132,8 +132,8 @@ public class TheGame {
     //goodArray = mrP.shiftArr(goodArray);
     //************************************************************************************************************************************
     
-    int assist = findMinDigit(randomGenerator(Integer.MAX_VALUE, 0));
-    int userStartingScore = setStartingScore(Integer.MAX_VALUE, assist);
+    int assist = findMinDigit(randomGenerator(Integer.MAX_VALUE, 1));
+    int userStartingScore = setStartingScore(randomGenerator(Integer.MAX_VALUE, 1), assist);
     
     //all the characters in the game
     String[] userInterests = {};
