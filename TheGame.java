@@ -9,18 +9,22 @@ public class TheGame {
     return (int) ((Math.random() * (max - min)) + 1) + min;
   }
   
+  /*Determines the minimum digit of a passed integer
+   * Precondition: Passed integer must be a positive number, otherwise will not output the correct digit
+   * Postcondition: Returns the minimum digit of a passed integer as a positive int.
+   */
   public static int findMinDigit(int a)
   {
-    int b = 9;
+    int digit = 9;
     while (a > 0)
     {
-      if (a%10 < b)
+      if (a%10 < digit)
       {
-        b = a%10;
+        digit = a%10;
       }
       a = a/10;
     }
-    return b;
+    return digit;
   }
   
   public static int setStartingScore(int largeNumber, int digit)
