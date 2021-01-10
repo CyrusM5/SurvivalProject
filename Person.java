@@ -74,7 +74,8 @@ public class Person
     return ave;
   }
   public int goodOrBad(String[] a, String[] b){
-    int mGScore = 0;
+    int average = 0;
+    int correctA = 0;
     int cAns = 0;
     int wAns = 0;
     int inT = 0;
@@ -87,10 +88,13 @@ public class Person
       if (good.equalsIgnoreCase("good"))
       {
         validAnswer = true;
-        mGScore++;
+        correctA++;
         cAns++;
         nums[inT] = 1;
         inT++;
+        String levelNum = b[i].substring(b[i].indexOf("level")+6,b[i].indexOf("level")+7);
+        int level = Integer.parseInt(levelNum.trim());
+        average += level;
       }
       else if (good.equalsIgnoreCase("bad"))
       {
@@ -112,10 +116,13 @@ public class Person
       if (bad.equalsIgnoreCase("bad"))
       {
         validAnswer2 = true;
-        mGScore++;
+        correctA++;
         cAns++;
         nums[inT] = 1;
         inT++;
+        String levelNum = b[i].substring(b[i].indexOf("level")+6,b[i].indexOf("level")+7);
+        int level = Integer.parseInt(levelNum.trim());
+        average += level;
       }
       else if (bad.equalsIgnoreCase("good"))
       {
@@ -131,8 +138,9 @@ public class Person
       }
       }
     }
-    System.out.println("You scored a "+mGScore+" out of "+(wAns+cAns)+".");
-    return mGScore;
+    System.out.println("You got "+correctA+" out of "+(wAns+cAns)+" correct.");
+    System.out.println("Your average score was "+ average/(wAns+cAns)+".");
+    return correctA;
   }
   public int[] getNArr(){
     return nums;
