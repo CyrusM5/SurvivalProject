@@ -84,8 +84,43 @@ public class TheGame {
     Person mrP = new Person();
     int score = 0;
     int scores[] = new int [5];
-    String[] goodArray = {"Leans in", "Makes good eye contact", "Moves when you do", "Parts lips", "Touches face, cheek", "Twirls hair"};
-    String[] badArray = {"Clenches jaw", "Holds finger to chin or lips", "Look away", "Rubs neck or head", "Shifts weight", "Slouches"};
+    Question goodO = new Question("Leans in", randomGenerator(1, 0));
+    Question goodTw = new Question("Makes good eye contact", randomGenerator(2, 1));
+    Question goodTh = new Question("Moves when you do", randomGenerator(3, 1));
+    Question goodFo = new Question("Parts lips", randomGenerator(2, 1));
+    Question goodFi = new Question("Touches face, cheek", randomGenerator(1, 0));
+    Question goodS = new Question("Twirls hair", randomGenerator(2, 1));
+    Question badO = new Question("Clenches jaw", randomGenerator(3, 1));
+    Question badTw = new Question("Holds finger to chin or lips", randomGenerator(2, 1));
+    Question badTh = new Question("Look away", randomGenerator(1, 0));
+    Question badFo = new Question("Rubs neck or head", randomGenerator(2, 1));
+    Question badFi = new Question("Shifts weight", randomGenerator(3, 1));
+    Question badS = new Question("Slouches", randomGenerator(2, 1));
+    Question[] questionArray = {goodO, goodTw, goodTh, goodFo, goodFi, goodS, badO, badTw, badTh, badFo, badFi, badS};
+    int oneQ = 0;
+    int twoQ = 0;
+    int threeQ = 0;
+    for (Question question: questionArray)
+    {
+      if (question.getLevel()==1)
+      {
+        oneQ++;
+      }
+      else if (question.getLevel()==2)
+      {
+        twoQ++;
+      }
+      else if (question.getLevel()==3)
+      {
+        threeQ++;
+      }
+    }
+    String[] goodArray = {goodO.toString(), goodTw.toString(), goodTh.toString(), goodFo.toString(), goodFi.toString(), goodS.toString()};
+    String[] badArray = {badO.toString(), badTw.toString(), badTh.toString(), badFo.toString(), badFi.toString(), badS.toString()};
+    goodArray = mrP.shiftArr(goodArray, randomGenerator(0,10));
+    badArray = mrP.shiftArr(badArray, randomGenerator(0,10));
+    goodArray = mrP.revArr(goodArray);
+    badArray = mrP.revArr(badArray);
     goodArray = mrP.shiftArr(goodArray, randomGenerator(0,10));
     badArray = mrP.shiftArr(badArray, randomGenerator(0,10));
     goodArray = mrP.revArr(goodArray);
