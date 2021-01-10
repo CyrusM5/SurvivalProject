@@ -28,7 +28,7 @@ public class Person
     }
     return input;
   }
-  public int moDe (int[] input){
+  private int moDe (int[] input){
     //String inputS = Integer.toString(input);
     int frQu = 0;
     int mode = 0;
