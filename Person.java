@@ -162,12 +162,6 @@ public class Person
       else if (personality.equalsIgnoreCase("attractive")){
         validAnswer = true;
       }
-      else if (personality.equalsIgnoreCase("weird")){
-        validAnswer = true;
-      }
-      else if (personality.equalsIgnoreCase("quirky")){
-        validAnswer = true;
-      }
       else {
         validAnswer = false;
         System.out.println("Please enter an appropriate answer.");
