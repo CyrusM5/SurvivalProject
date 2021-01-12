@@ -3,13 +3,14 @@ public class Competitor
     private Single single;
     private String name;
     private int health;
-    public Competitor()
+    public Competitor(Single character)
     {
+        health = character.getHealth();
+        name = character.getName();
     }
-    public Competitor(int h, String n)
-    {
-        health = h;
+    public Competitor(String n, int h){
         name = n;
+        health = h;
     }
     public String toString(){
         return "Your competitor is " + name + ".\n";
