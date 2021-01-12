@@ -10,6 +10,44 @@ public class TheGame {
     }
 
     /**
+     * Determines the minimum digit of a passed integer
+     * Precondition: Passed integer must be a positive number, otherwise will not output the correct digit
+     * Postcondition: Returns the minimum digit of a passed integer as a positive int.
+     */
+    public static int findMinDigit(int a)
+    {
+        int digit = 9;
+        while (a > 0)
+        {
+            if (a%10 < digit)
+            {
+                digit = a%10;
+            }
+            a = a/10;
+        }
+        return digit;
+    }
+    /**
+     * Determines the starting score by finding the "digit"th digit of a passed "largeNumber"
+     * Precondition: The int digit passed must be a positive number, otherwise will incorrectly output 0.
+     * Precondition: The int largeNumber must have as many or more places of digits than the value of int digit, otherwise will incorrectly output 0.
+     * Postcondition: Returns a starting score of either 100, 200, 300, 400, 500, 600, 700, 800, or 900.
+     */
+    public static int setStartingScore(int largeNumber, int digit)
+    {
+        int finalNumber = 0;
+        int d = String.valueOf(largeNumber).length();
+        d = d-digit;
+        while (d > 0)
+        {
+            finalNumber = largeNumber%10;
+            largeNumber = largeNumber/10;
+            d--;
+        }
+        return finalNumber*100;
+    }
+
+    /**
      * decreases the health of the given character
      * @param decrease number by which the health decreases
      * @param s object whose health decreases
@@ -18,10 +56,8 @@ public class TheGame {
         if (s.getHealth() > 0 && decrease <= s.getHealth()) {
             s.setHealth(s.getHealth() - decrease);
         }
-        else{s.setHealth(0);}
-        System.out.println("Health: " + s.getHealth());
+        System.out.println("Score: " + s.getHealth());
     }
-
     /**
      * prints out the updated score
      * @param i the amount added to the score
@@ -35,7 +71,7 @@ public class TheGame {
      * @param user needs the Single to use its health
      * @return returns a number that is less than the users health hopefully.
      */
-    public static int decScore(Single user){
+    private static int decScore(Single user){
         int[] nums = new int[10];
         for(int i = 0; i<nums.length; i++){
             nums[i] = randomGenerator(user.getHealth(),5);
@@ -52,97 +88,60 @@ public class TheGame {
         }
         return max - min;
     }
-    
-   /*Determines the minimum digit of a passed integer
-    * Precondition: Passed integer must be a positive number, otherwise will not output the correct digit
-    * Postcondition: Returns the minimum digit of a passed integer as a positive int.
-    */
-    public static int findMinDigit(int a)
-    {
-      int digit = 9;
-      while (a > 0)
-      {
-        if (a%10 < digit)
-        {
-          digit = a%10;
-        }
-        a = a/10;
-      }
-      return digit;
-    }
-   
-    /*Determines the starting score by finding the "digit"th digit of a passed "largeNumber"
-     * Precondition: The int digit passed must be a positive number, otherwise will incorrectly output 0.
-     * Precondition: The int largeNumber must have as many or more places of digits than the value of int digit, otherwise will incorrectly output 0.
-     * Postcondition: Returns a starting score of either 100, 200, 300, 400, 500, 600, 700, 800, or 900.
-     */
-    public static int setStartingScore(int largeNumber, int digit)
-    {
-      int finalNumber = 0;
-      int d = String.valueOf(largeNumber).length();
-      d = d-digit;
-      while (d > 0)
-      {
-        finalNumber = largeNumber%10;
-        largeNumber = largeNumber/10;
-        d--;
-      }
-      return finalNumber*100;
-    }
 
     public static void main(String[] args) {
 
         //for the mini-game*******************************************************************************************************************
-      Person mrP = new Person();
-      int score = 0;
-      int scores[] = new int [5];
-      Question goodO = new Question("Leans in", randomGenerator(1, 0));
-      Question goodTw = new Question("Makes good eye contact", randomGenerator(2, 1));
-      Question goodTh = new Question("Moves when you do", randomGenerator(3, 1));
-      Question goodFo = new Question("Parts lips", randomGenerator(2, 1));
-      Question goodFi = new Question("Touches face, cheek", randomGenerator(1, 0));
-      Question goodS = new Question("Twirls hair", randomGenerator(2, 1));
-      Question badO = new Question("Clenches jaw", randomGenerator(3, 1));
-      Question badTw = new Question("Holds finger to chin or lips", randomGenerator(2, 1));
-      Question badTh = new Question("Look away", randomGenerator(1, 0));
-      Question badFo = new Question("Rubs neck or head", randomGenerator(2, 1));
-      Question badFi = new Question("Shifts weight", randomGenerator(3, 1));
-      Question badS = new Question("Slouches", randomGenerator(2, 1));
-      Question[] questionArray = {goodO, goodTw, goodTh, goodFo, goodFi, goodS, badO, badTw, badTh, badFo, badFi, badS};
-      int oneQ = 0;
-      int twoQ = 0;
-      int threeQ = 0;
-      for (Question question: questionArray)
-      {
-        if (question.getLevel()==1)
+        Person mrP = new Person();
+        int score = 0;
+        int scores[] = new int [5];
+        Question goodO = new Question("Leans in", randomGenerator(1, 0));
+        Question goodTw = new Question("Makes good eye contact", randomGenerator(2, 1));
+        Question goodTh = new Question("Moves when you do", randomGenerator(3, 1));
+        Question goodFo = new Question("Parts lips", randomGenerator(2, 1));
+        Question goodFi = new Question("Touches face, cheek", randomGenerator(1, 0));
+        Question goodS = new Question("Twirls hair", randomGenerator(2, 1));
+        Question badO = new Question("Clenches jaw", randomGenerator(3, 1));
+        Question badTw = new Question("Holds finger to chin or lips", randomGenerator(2, 1));
+        Question badTh = new Question("Look away", randomGenerator(1, 0));
+        Question badFo = new Question("Rubs neck or head", randomGenerator(2, 1));
+        Question badFi = new Question("Shifts weight", randomGenerator(3, 1));
+        Question badS = new Question("Slouches", randomGenerator(2, 1));
+        Question[] questionArray = {goodO, goodTw, goodTh, goodFo, goodFi, goodS, badO, badTw, badTh, badFo, badFi, badS};
+        int oneQ = 0;
+        int twoQ = 0;
+        int threeQ = 0;
+        for (Question question: questionArray)
         {
-          oneQ++;
+            if (question.getLevel()==1)
+            {
+                oneQ++;
+            }
+            else if (question.getLevel()==2)
+            {
+                twoQ++;
+            }
+            else if (question.getLevel()==3)
+            {
+                threeQ++;
+            }
         }
-        else if (question.getLevel()==2)
-        {
-          twoQ++;
-        }
-        else if (question.getLevel()==3)
-        {
-          threeQ++;
-        }
-      }
-      String[] goodArray = {goodO.toString(), goodTw.toString(), goodTh.toString(), goodFo.toString(), goodFi.toString(), goodS.toString()};
-      String[] badArray = {badO.toString(), badTw.toString(), badTh.toString(), badFo.toString(), badFi.toString(), badS.toString()};
-      goodArray = mrP.shiftArr(goodArray, randomGenerator(0,10));
-      badArray = mrP.shiftArr(badArray, randomGenerator(0,10));
-      goodArray = mrP.revArr(goodArray);
-      badArray = mrP.revArr(badArray);
-      goodArray = mrP.shiftArr(goodArray, randomGenerator(0,10));
-      badArray = mrP.shiftArr(badArray, randomGenerator(0,10));
-      goodArray = mrP.revArr(goodArray);
-      badArray = mrP.revArr(badArray);
-      //goodArray = mrP.shiftArr(goodArray);
+        String[] goodArray = {goodO.toString(), goodTw.toString(), goodTh.toString(), goodFo.toString(), goodFi.toString(), goodS.toString()};
+        String[] badArray = {badO.toString(), badTw.toString(), badTh.toString(), badFo.toString(), badFi.toString(), badS.toString()};
+        goodArray = mrP.shiftArr(goodArray, randomGenerator(0,10));
+        badArray = mrP.shiftArr(badArray, randomGenerator(0,10));
+        goodArray = mrP.revArr(goodArray);
+        badArray = mrP.revArr(badArray);
+        goodArray = mrP.shiftArr(goodArray, randomGenerator(0,10));
+        badArray = mrP.shiftArr(badArray, randomGenerator(0,10));
+        goodArray = mrP.revArr(goodArray);
+        badArray = mrP.revArr(badArray);
+        //goodArray = mrP.shiftArr(goodArray);
         //************************************************************************************************************************************
 
         int assist = findMinDigit(randomGenerator(Integer.MAX_VALUE, 1));
-        int userStartingScore = setStartingScore(randomGenerator(Integer.MAX_VALUE, 1), assist);
-        
+        int userStartingScore = setStartingScore(randomGenerator(600, 1), assist);
+
         //all the characters in the game
         String[] userInterests = {};
         Single cyrus = new Single("Cyrus", 250);
@@ -187,19 +186,19 @@ public class TheGame {
         character = new Scanner(System.in);
         String enter = character.nextLine();
         System.out.println("Before the simulation begins you have to play this mini-game. This game will test you knowledge" +
-                        "of basic body language on a date. Please answer with \"good\" or \"bad\"");
+                "of basic body language on a date. Please answer with \"good\" or \"bad\"");
         //the mini-game
-//        score = 0;
-//        score = mrP.goodOrBad(goodArray, badArray);
-//        double average = 0;
-//        average = mrP.avErage(mrP.getNArr());
-//        int mode = 0;
-//        mode = mrP.moDe(mrP.getNArr());
-//        //System.out.println(score);
-//        //System.out.println(mrP.getNArr());
-//        for (int i = 0; i < mrP.getNArr().length; i++){
-//            System.out.print(mrP.getNArr()[i]+" ");
-//        }
+        score = 0;
+        score = mrP.goodOrBad(goodArray, badArray);
+        double average = 0;
+        average = mrP.avErage(mrP.getNArr());
+        int mode = 0;
+        mode = mrP.moDe(mrP.getNArr());
+        //System.out.println(score);
+        //System.out.println(mrP.getNArr());
+        for (int i = 0; i < mrP.getNArr().length; i++){
+            System.out.print(mrP.getNArr()[i]+" ");
+        }
 
         System.out.println("Great you are now ready to enter the simulation");
         try {
@@ -209,11 +208,13 @@ public class TheGame {
         }
 
         //based on how the user describes themselves they will have different situations.
-        System.out.println("In one (or two) word(s), how would you describe yourself? Choose from the following options:\nnice, Willy Wonka, or attractive");
-        String personality = character.nextLine();
-
+        //System.out.println("In one (or two) word(s), how would you describe yourself? Choose from the following options:\nnice, Willy Wonka, attractive, weird, quirky");
+        //String personality = character.nextLine();
+        String personality = "";
+        personality = mrP.vAnswer("In one (or two) word(s), how would you describe yourself? Choose from the following options:\nnice, Willy Wonka, attractive");
         //when the user chooses nice********************************************************************************************************************************************
         if (personality.equalsIgnoreCase("nice")) {
+            //boolean validAnswer = true;
             System.out.println("You signed up for Christian Mingle and described yourself as \"nice\". After a few long days, \n" +
                     "you finally matched with someone. Surprising! you didn't expect it and thought it was too good to be true \n" +
                     "and maybe it was...\nIt's a Friday night, you get out of work and get ready. Normal evening, nothing special.\n" +
@@ -261,6 +262,7 @@ public class TheGame {
 
         //when the user chooses Willy Wonka as their personality***************************************************************************************************************
         if (personality.equalsIgnoreCase("Willy Wonka")) {
+            boolean validAnswer = true;
             System.out.println("You signed up for Tinder and described yourself as \"Willy Wonka\".");
             System.out.println("You arrived at the restaurant and you see your attractive date. You walk up to them and start a conversation\n" +
                     "about candy and your date seems very interested.\n");
@@ -287,18 +289,17 @@ public class TheGame {
                             "that unfortunately it's not gonna work. Out of embarrassment you offer to pay for the meal and your date agrees. Now you don't even\n" +
                             "have money to take the taxi home and you have to walk. And of course it's raining... When you get home all of your clothes are wet and\n" +
                             "you feel sad. What a terrible day...\n");
-
-                    end(decScore(user), user);
-                    score(2, Single.finalScore);
-                    if (user.getHealth() == 0) {
-                        System.out.println("You died!! ");
-                        System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
-                                "in a romantic relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
-                                "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
-
-                    } else {
-                        //situation that happens after he goes home
+                    try {
+                        Thread.sleep(7000);
+                    } catch (InterruptedException ex) {
+                        Thread.currentThread().interrupt();
                     }
+                    end(decScore(user), user);
+                    System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
+                            "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                            "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
+                    
+                    //score(2, Single.finalScore);
                     try {
                         Thread.sleep(7000);
                     } catch (InterruptedException ex) {
@@ -310,13 +311,6 @@ public class TheGame {
                             "pretty bad right in the face. Soon the police is called and you get taken to jail.\n");
 
                     end(decScore(user), user);
-                    if (user.getHealth() == 0) {
-                        System.out.println("You died!! ");
-                        System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
-                                "in a romantic relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
-                                "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
-
-                    } else {
                         try {
                             Thread.sleep(7000);
                         } catch (InterruptedException ex) {
@@ -337,26 +331,21 @@ public class TheGame {
                         int answer2 = userResponse.nextInt();
                         if (answer2 == 1) {
                             System.out.println("Great job, by staying in the corner of the room and not taking off any clothes you don't allow the inmates to\n" +
-                                    "play any tricks on you or take any of your stuff(I know it's wrong to assume that people are jerks but according to the book\n" +
-                                    "you can't be careful enough in jail).");
+                                    "play any tricks on you or take any of your stuff(because you always have to assume people are jerks...)");
                             try {
                                 Thread.sleep(7000);
                             } catch (InterruptedException ex) {
                                 Thread.currentThread().interrupt();
                             }
-                            System.out.println("You survive the night, the next day your dad bails you out of jail and you go home.\n");
+                            System.out.println("You survive the night, the next day your dad bails you out of jail and you go home. You decide to never go on a date again...\n");
                             end(decScore(user), user);
-                            if (user.getHealth() == 0) {
-                                System.out.println("You died!! ");
-                                System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely and sad that you're not\n" +
-                                        "in a romantic relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                            System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely and sad that you're not\n" +
+                                        "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                                         "highschool relationships ending in marriage your chances of finding your true love in highschool are pretty low...");
-                            }
                         }
                         if (answer2 == 2) {
                             System.out.println("Wrong choice, when you lie down on the bench or cot without saying anything you're not showing dominance\n" +
-                                    "you're giving your fellow inmates a reason to pick on you or claim that you're lying down on their bunk.(I know it's wrong to assume\n" +
-                                    "that people are jerks but according to the book you can't be careful enough in jail)");
+                                    "you're giving your fellow inmates a reason to pick on you or claim that you're lying down on their bunk.");
                             try {
                                 Thread.sleep(7000);
                             } catch (InterruptedException ex) {
@@ -364,15 +353,16 @@ public class TheGame {
                             }
                             System.out.println("As you lie down on the bench, someone comes up to you and tells you that it's their spot. You're too tired to argue so you get\n" +
                                     "up, but for the rest of the time there people call you \"stinky socks\" because you left them lying out beside the bench when you went to sleep.\n");
-                            System.out.println("The next day your dad bails you out of jail and you get to go home, but for some reason your dad cannot get \"stinky socks\" out of his head\n" +
-                                    "and now you have a new nickname\n");
-                            end(decScore(user), user);
-                            if (user.getHealth() == 0) {
-                                System.out.println("You died!! ");
-                                System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely and sad that you're not\n" +
-                                        "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
-                                        "highschool relationships ending in marriage your chances of finding your true love in highschool are pretty low...");
+                            System.out.println("The next day your dad bails you out of jail and you get to go home. On the way home you ask him to drive you to the store to get new socks.\n");
+                            try {
+                                Thread.sleep(7000);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
                             }
+                            end(decScore(user), user);
+                            System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
+                                    "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                                    "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
                         }
                         if (answer2 == 3) {
                             System.out.println("You decide not to sleep and so you stay up all night. The next day you walk to the bathroom and brush your teeth with a toothbrush but it\n" +
@@ -383,24 +373,30 @@ public class TheGame {
                             } catch (InterruptedException ex) {
                                 Thread.currentThread().interrupt();
                             }
-                            System.out.println("The next day your dad bails you out of jail and you get to go home. You were so happy, that was until your dad overheard the story\n" +
-                                    "about the toothbrush and told it to everyone he knew, now this story haunts you every Thanksgiving.\n");
+                            System.out.println("The next day your dad bails you out of jail and you get to go home. When you make it home you realize that you took the wrong tooth brush...\n");
                             end(decScore(user), user);
-                            if (user.getHealth() == 0) {
-                                System.out.println("You died!! ");
                                 System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                                         "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                                         "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
-                            }
                         }
                     }
                 }
+                if (serius.equalsIgnoreCase("No")) {
+                    System.out.println("OH NO! The situation was in fact VERY SERIOUS. Your date has left with the competitor, and the bill was 123 times more expensive than you thought it would be! ");
+                    end(user.getHealth(), user);
+                    if (user.getHealth() == 0) {
+                        System.out.println("You lost!! ");
+                        System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
+                                "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                                "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
+                    }
             }
-        }
-        //*********************************************************************************************************************************************************************
 
+            //*********************************************************************************************************************************************************************
+        }
         //when the user describes themselves as "attractive"*******************************************************************************************************************
         if (personality.equalsIgnoreCase("attractive")) {
+            //validAnswer = true;
             System.out.println("Here you are, sitting at the library. You really seem to enjoy that dictionary. But then"
                     + " you notice a person approaching you. Be wary, as this person is prone to fits of rage and yelling. The person asks you out."
                     + " You appreciate the gesture, but you don't feel the same way. You say:\n1.\"Yes, I've been waiting for you to ask me that forever.\""
@@ -423,12 +419,12 @@ public class TheGame {
                 if(answerAtt1==2)
                 {
                     int answerAtt12 = userResponseAtt.nextInt();
-                    attSits.nextSitForAtt12(answerAtt12, user);
+                    attSits.nextSitForAtt12(answerAtt12,user);
                 }
                 if(answerAtt1==3)
                 {
                     int answerAtt13 = userResponseAtt.nextInt();
-                    attSits.nextSitForAtt13(answerAtt13, user);
+                    attSits.nextSitForAtt13(answerAtt13,user);
                 }
             }
             if(answerAtt==2)
@@ -438,17 +434,17 @@ public class TheGame {
                 if(answerAtt2==1)
                 {
                     int answerAtt21 = userResponseAtt.nextInt();
-                    attSits.nextSitForAtt21(answerAtt21, user);
+                    attSits.nextSitForAtt21(answerAtt21,user);
                 }
                 if(answerAtt2==2)
                 {
                     int answerAtt22 = userResponseAtt.nextInt();
-                    attSits.nextSitForAtt22(answerAtt22, user);
+                    attSits.nextSitForAtt22(answerAtt22,user);
                 }
                 if(answerAtt2==3)
                 {
                     int answerAtt23 = userResponseAtt.nextInt();
-                    attSits.nextSitForAtt23(answerAtt23, user);
+                    attSits.nextSitForAtt23(answerAtt23,user);
                 }
             }
             if(answerAtt==3)
@@ -458,17 +454,17 @@ public class TheGame {
                 if(answerAtt3==1)
                 {
                     int answerAtt31 = userResponseAtt.nextInt();
-                    attSits.nextSitForAtt31(answerAtt31, user);
+                    attSits.nextSitForAtt31(answerAtt31,user);
                 }
                 if(answerAtt3==2)
                 {
                     int answerAtt32 = userResponseAtt.nextInt();
-                    attSits.nextSitForAtt32(answerAtt32, user);
+                    attSits.nextSitForAtt32(answerAtt32,user);
                 }
                 if(answerAtt3==3)
                 {
                     int answerAtt33 = userResponseAtt.nextInt();
-                    attSits.nextSitForAtt33(answerAtt33, user);
+                    attSits.nextSitForAtt33(answerAtt33,user);
                 }
             }
         }
