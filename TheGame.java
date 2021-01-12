@@ -209,7 +209,7 @@ public class TheGame {
         }
 
         //based on how the user describes themselves they will have different situations.
-        System.out.println("In one (or two) word(s), how would you describe yourself? Choose from the following options:\nnice, Willy Wonka, attractive, weird, quirky");
+        System.out.println("In one (or two) word(s), how would you describe yourself? Choose from the following options:\nnice, Willy Wonka, or attractive");
         String personality = character.nextLine();
 
         //when the user chooses nice********************************************************************************************************************************************
@@ -473,13 +473,6 @@ public class TheGame {
             }
         }
         //*********************************************************************************************************************************************************************
-
-        if (personality.equalsIgnoreCase("weird")) {
-            System.out.println("");
-        }
-        if (personality.equalsIgnoreCase("quirky")) {
-            System.out.println("");
-        }
     }
 
 }
