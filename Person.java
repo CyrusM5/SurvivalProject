@@ -28,7 +28,7 @@ public class Person
     }
     return input;
   }
-  private int moDe (int[] input){
+  public int moDe (int[] input){
     //String inputS = Integer.toString(input);
     int frQu = 0;
     int mode = 0;
@@ -74,11 +74,15 @@ public class Person
     return ave;
   }
   public int goodOrBad(String[] a, String[] b){
-    int average = 0;
+    int q = 0;
+    int[] average = new int[12];
     int correctA = 0;
     int cAns = 0;
     int wAns = 0;
     int inT = 0;
+    String levelNum = "";
+    int level = 0;
+    int w = 0;
     for (int i = 0; i < (a.length+b.length)/2; i++)
     {
       boolean validAnswer = false;
@@ -92,9 +96,9 @@ public class Person
         cAns++;
         nums[inT] = 1;
         inT++;
-        String levelNum = b[i].substring(b[i].indexOf("level")+6,b[i].indexOf("level")+7);
-        int level = Integer.parseInt(levelNum.trim());
-        average += level;
+        levelNum = a[i].substring(a[i].indexOf("level")+6,a[i].indexOf("level")+7);
+        level = Integer.parseInt(levelNum.trim());
+        average[w++] = level;
       }
       else if (good.equalsIgnoreCase("bad"))
       {
@@ -102,6 +106,7 @@ public class Person
         wAns++;
         nums[inT] = 0;
         inT++;
+        average[w++] = 0;
       }
       else
       {
@@ -120,9 +125,9 @@ public class Person
         cAns++;
         nums[inT] = 1;
         inT++;
-        String levelNum = b[i].substring(b[i].indexOf("level")+6,b[i].indexOf("level")+7);
-        int level = Integer.parseInt(levelNum.trim());
-        average += level;
+        levelNum = b[i].substring(b[i].indexOf("level")+6,b[i].indexOf("level")+7);
+        level = Integer.parseInt(levelNum.trim());
+        average[w++] = level;
       }
       else if (bad.equalsIgnoreCase("good"))
       {
@@ -130,6 +135,7 @@ public class Person
         wAns++;
         nums[inT] = 0;
         inT++;
+        average[w++] = 0;
       }
       else
       {
@@ -138,8 +144,38 @@ public class Person
       }
       }
     }
+    int sum = 0;
+    double mean = 0;
+    for (int i: average)
+    {
+      sum += i;
+      System.out.print (i+" ");
+    }
+    mean = (double)sum/average.length;
+    int frequency = 0;
+    int mode = 0;
+    int highestFrequency = frequency;
+    System.out.println();
+    for (int i: average)
+    {
+      for (int i2: average)
+      {
+        if (i==i2 && i!=0)
+        {
+          frequency++;
+        }
+      }
+      if (frequency > highestFrequency)
+      {
+        highestFrequency = frequency;
+        mode = i;
+      }
+      frequency = 0;
+    }
     System.out.println("You got "+correctA+" out of "+(wAns+cAns)+" correct.");
-    System.out.println("Your average score was "+ average/(wAns+cAns)+".");
+    System.out.println("Your total score was "+ sum +".");
+    System.out.println("Your average score was "+ mean +".");
+    System.out.println("The level you scored most frequently "+ mode +".");
     return correctA;
   }
   public int[] getNArr(){
@@ -160,6 +196,12 @@ public class Person
         validAnswer = true;
       }
       else if (personality.equalsIgnoreCase("attractive")){
+        validAnswer = true;
+      }
+      else if (personality.equalsIgnoreCase("weird")){
+        validAnswer = true;
+      }
+      else if (personality.equalsIgnoreCase("quirky")){
         validAnswer = true;
       }
       else {
