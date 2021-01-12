@@ -52,28 +52,103 @@ public class TheGame {
         }
         return max - min;
     }
+    
+   /*Determines the minimum digit of a passed integer
+    * Precondition: Passed integer must be a positive number, otherwise will not output the correct digit
+    * Postcondition: Returns the minimum digit of a passed integer as a positive int.
+    */
+    public static int findMinDigit(int a)
+    {
+      int digit = 9;
+      while (a > 0)
+      {
+        if (a%10 < digit)
+        {
+          digit = a%10;
+        }
+        a = a/10;
+      }
+      return digit;
+    }
+   
+    /*Determines the starting score by finding the "digit"th digit of a passed "largeNumber"
+     * Precondition: The int digit passed must be a positive number, otherwise will incorrectly output 0.
+     * Precondition: The int largeNumber must have as many or more places of digits than the value of int digit, otherwise will incorrectly output 0.
+     * Postcondition: Returns a starting score of either 100, 200, 300, 400, 500, 600, 700, 800, or 900.
+     */
+    public static int setStartingScore(int largeNumber, int digit)
+    {
+      int finalNumber = 0;
+      int d = String.valueOf(largeNumber).length();
+      d = d-digit;
+      while (d > 0)
+      {
+        finalNumber = largeNumber%10;
+        largeNumber = largeNumber/10;
+        d--;
+      }
+      return finalNumber*100;
+    }
 
     public static void main(String[] args) {
 
         //for the mini-game*******************************************************************************************************************
-        Person mrP = new Person();
-        int score = 0;
-        int scores[] = new int [5];
-        String[] goodArray = {"Leans in", "Makes good eye contact", "Moves when you do", "Parts lips", "Touches face, cheek", "Twirls hair"};
-        String[] badArray = {"Clenches jaw", "Holds finger to chin or lips", "Look away", "Rubs neck or head", "Shifts weight", "Slouches"};
-        goodArray = mrP.shiftArr(goodArray, randomGenerator(0,10));
-        badArray = mrP.shiftArr(badArray, randomGenerator(0,10));
-        goodArray = mrP.revArr(goodArray);
-        badArray = mrP.revArr(badArray);
-        //goodArray = mrP.shiftArr(goodArray);
+      Person mrP = new Person();
+      int score = 0;
+      int scores[] = new int [5];
+      Question goodO = new Question("Leans in", randomGenerator(1, 0));
+      Question goodTw = new Question("Makes good eye contact", randomGenerator(2, 1));
+      Question goodTh = new Question("Moves when you do", randomGenerator(3, 1));
+      Question goodFo = new Question("Parts lips", randomGenerator(2, 1));
+      Question goodFi = new Question("Touches face, cheek", randomGenerator(1, 0));
+      Question goodS = new Question("Twirls hair", randomGenerator(2, 1));
+      Question badO = new Question("Clenches jaw", randomGenerator(3, 1));
+      Question badTw = new Question("Holds finger to chin or lips", randomGenerator(2, 1));
+      Question badTh = new Question("Look away", randomGenerator(1, 0));
+      Question badFo = new Question("Rubs neck or head", randomGenerator(2, 1));
+      Question badFi = new Question("Shifts weight", randomGenerator(3, 1));
+      Question badS = new Question("Slouches", randomGenerator(2, 1));
+      Question[] questionArray = {goodO, goodTw, goodTh, goodFo, goodFi, goodS, badO, badTw, badTh, badFo, badFi, badS};
+      int oneQ = 0;
+      int twoQ = 0;
+      int threeQ = 0;
+      for (Question question: questionArray)
+      {
+        if (question.getLevel()==1)
+        {
+          oneQ++;
+        }
+        else if (question.getLevel()==2)
+        {
+          twoQ++;
+        }
+        else if (question.getLevel()==3)
+        {
+          threeQ++;
+        }
+      }
+      String[] goodArray = {goodO.toString(), goodTw.toString(), goodTh.toString(), goodFo.toString(), goodFi.toString(), goodS.toString()};
+      String[] badArray = {badO.toString(), badTw.toString(), badTh.toString(), badFo.toString(), badFi.toString(), badS.toString()};
+      goodArray = mrP.shiftArr(goodArray, randomGenerator(0,10));
+      badArray = mrP.shiftArr(badArray, randomGenerator(0,10));
+      goodArray = mrP.revArr(goodArray);
+      badArray = mrP.revArr(badArray);
+      goodArray = mrP.shiftArr(goodArray, randomGenerator(0,10));
+      badArray = mrP.shiftArr(badArray, randomGenerator(0,10));
+      goodArray = mrP.revArr(goodArray);
+      badArray = mrP.revArr(badArray);
+      //goodArray = mrP.shiftArr(goodArray);
         //************************************************************************************************************************************
 
+        int assist = findMinDigit(randomGenerator(Integer.MAX_VALUE, 1));
+        int userStartingScore = setStartingScore(randomGenerator(Integer.MAX_VALUE, 1), assist);
+        
         //all the characters in the game
         String[] userInterests = {};
         Single cyrus = new Single("Cyrus", 250);
         Single arina = new Single("Arina", 200);
         Single halil = new Single("Halil", 199);
-        Single user = new Single("", 500, userInterests);//this is the main character
+        Single user = new Single("", userStartingScore, userInterests);//this is the main character
         Competitor theCompetitor = new Competitor(0, "");
         int count = 0;
         int random = randomGenerator(100, 1);
