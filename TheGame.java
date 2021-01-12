@@ -148,7 +148,7 @@ public class TheGame {
         Single arina = new Single("Arina", 200);
         Single halil = new Single("Halil", 199);
         Single user = new Single("", userStartingScore, userInterests);//this is the main character
-        Competitor theCompetitor = new Competitor(0, "");
+        Competitor theCompetitor = new Competitor("", 0);
         int count = 0;
         int random = randomGenerator(100, 1);
         Single [] competitors = {arina, cyrus, halil};
@@ -158,13 +158,11 @@ public class TheGame {
         for(Single i: competitors){
             int number = i.getHealth()%random;
             if(number == 0 || number == 1 || number == 2 || number == 3){
-                theCompetitor.setHealth(i.getHealth());
-                theCompetitor.setName(i.getName());
+                theCompetitor = new Competitor(i);
                 break;
             }
             if(count == 2 &&(theCompetitor.getHealth() == 0)){
-                theCompetitor.setHealth(i.getHealth());
-                theCompetitor.setName(i.getName());
+                theCompetitor = new Competitor(i);
             }
             count++;
         }
@@ -298,7 +296,7 @@ public class TheGame {
                     System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                             "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                             "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
-                    
+
                     //score(2, Single.finalScore);
                     try {
                         Thread.sleep(7000);
