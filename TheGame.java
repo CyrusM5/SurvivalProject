@@ -280,7 +280,32 @@ public class TheGame {
                 int answer1 = userResponse.nextInt();
                 if (answer1 == 2) {
                     System.out.println("Good job! you win this one...");
-
+                    try {
+                        Thread.sleep(7000);
+                    } catch (InterruptedException ex) {
+                        Thread.currentThread().interrupt();
+                    }
+                    System.out.println("You've been talking about candy for 4 hours and your date is getting very bored");
+                    try {
+                        Thread.sleep(7000);
+                    } catch (InterruptedException ex) {
+                        Thread.currentThread().interrupt();
+                    }
+                    System.out.println("What conversation topic can you chose next?\n" +
+                        "1.) What event has shaped your life the most?\n" +
+                        "2.) What is your deepest darkest secret?\n" +
+                        "3.) I thought this date was going to be horrific when I first saw you, but your mind is fascinating.\n");
+                    userResponse = new Scanner(System.in);
+                    int answerCon = userResponse.nextInt();
+                    if (answerCon == 1) {
+                      System.out.println("Excellent! You had an extremely deep and insightful conversation.");
+                    }
+                    else if (answerCon == 2) {
+                      System.out.println("Yesh. Your date just stared at you blankly, that's kind of a creepy question to ask on a first date.");
+                    }
+                    else if (answerCon == 3) {
+                      System.out.println("Your date was outraged at your comment, and splashed water in your face.v");
+                    }
                 } else if (answer1 == 1) {
                     System.out.println("Wrong choice, you should've sat between the competitor and your date. While you were in the bathroom your competitor\n" +
                             "managed to impress your date and steal them from you. When you finally come out of the bathroom, your date apologizes and says\n" +
