@@ -29,15 +29,19 @@ public class TheGame {
     }
     /**
      * Determines the starting score by finding the "digit"th digit of a passed "largeNumber"
-     * Precondition: The int digit passed must be a positive number, otherwise will incorrectly output 0.
-     * Precondition: The int largeNumber must have as many or more places of digits than the value of int digit, otherwise will incorrectly output 0.
+     * Precondition: The int digit passed must be a positive number, otherwise will output incorrectly.
+     * Precondition: The int largeNumber must have as many or more places of digits than the value of int digit, otherwise will output incorrect number.
      * Postcondition: Returns a starting score of either 100, 200, 300, 400, 500, 600, 700, 800, or 900.
      */
     public static int setStartingScore(int largeNumber, int digit)
     {
         int finalNumber = 0;
         int d = String.valueOf(largeNumber).length();
-        d = d-digit;
+        if(d<digit)
+          d=0;
+        else
+          d = d-digit;
+        
         while (d > 0)
         {
             finalNumber = largeNumber%10;
@@ -296,30 +300,164 @@ public class TheGame {
                 if (answer1 == 2) {
                     System.out.println("Good job! you win this one...");
                     try {
-                        Thread.sleep(7000);
+                        Thread.sleep(3000);
                     } catch (InterruptedException ex) {
                         Thread.currentThread().interrupt();
                     }
-                    System.out.println("You've been talking about candy for 4 hours and your date is getting very bored");
+                    System.out.println("You and your date have been engaged in a very serious conversation about candy for about 4 hours now and your date is getting very bored.");
                     try {
-                        Thread.sleep(7000);
+                        Thread.sleep(3000);
                     } catch (InterruptedException ex) {
                         Thread.currentThread().interrupt();
                     }
-                    System.out.println("What conversation topic can you chose next?\n" +
+                    System.out.println("Luckily, you came prepared. What conversation topic do you choose next?\n" +
                             "1.) What event has shaped your life the most?\n" +
                             "2.) What is your deepest darkest secret?\n" +
-                            "3.) I thought this date was going to be horrific when I first saw you, but your mind is fascinating.\n");
+                            "3.) Talk about how your date's intelligence makes up for their lack of beauty.\n");
                     userResponse = new Scanner(System.in);
                     int answerCon = userResponse.nextInt();
                     if (answerCon == 1) {
                         System.out.println("Excellent! You had an extremely deep and insightful conversation.");
+                        try {
+                          Thread.sleep(3000);
+                        } catch (InterruptedException ex) {
+                          Thread.currentThread().interrupt();
+                        }
+                        System.out.println("You talk for hours and you had a great day. So did your date! It's now the end of the date and your chance to do something special.");
+                        try {
+                          Thread.sleep(3000);
+                        } catch (InterruptedException ex) {
+                          Thread.currentThread().interrupt();
+                        }
+                        System.out.println("How will you seize the opportunity?\n" +
+                                           "1.) Exchange phone numbers and arrange another date.\n" +
+                                           "2.) Bring out your origami toolkit and craft a rose and then gift it to your date.\n" +
+                                           "3.) Take your date to a party with a DJ and bust out your world-famous dance moves.\n");
+                        userResponse = new Scanner(System.in);
+                        int answerCon1 = userResponse.nextInt();
+                        if(answerCon1==1)
+                        {
+                          System.out.println("Yes! You successfully exchanged phone numbers and set a reservation at the same restaurant for 8 PM that weekend.\n" +
+                                             "But oh no! The phone number seems to be wrong and when you go to the restaurant that weekend, you realize you have\n" +
+                                             "been stood up. Maybe your date wasn't really interested in you at all...:(");
+                        }
+                        if(answerCon1==2)
+                        {
+                          System.out.println("Your date watches in amazement as you take out your origami toolkit. They are filled with happiness once you finish\n" +
+                                             "constructing the rose and giving it to them as a present. You have definitely earned yourself another date!");
+                          try {
+                            Thread.sleep(3000);
+                          } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                          }
+                          System.out.println("Three years later...");
+                          try {
+                            Thread.sleep(1500);
+                          } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                          }
+                          System.out.println("You are now happily married. You have renovated your chocolate factory into an origami factory. Your origami business\n" +
+                                             "venture fails and now you are broke. But hey, at least you successfully dated, right? Right?");
+                        }
+                        if(answerCon1==3)
+                        {
+                          System.out.println("Ah yes. Your \"world famous\" dance moves. It is not as good as you think, just stop. But you don't, and your date is\n" +
+                                             "disgusted. You attempt to show off to your date your \"blind person\" dance routine where you dance with a blindfold on.\n" +
+                                             "And you dance and dance and dance throughout the night.");
+                          try {
+                            Thread.sleep(7000);
+                          } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                          }
+                          System.out.println("You take your blindfold off and notice your date has left you while you were dancing. You also notice they blocked you on Tinder\n" +
+                                             "It's ok. Maybe you can use this time to learn real dance moves. Ask Halil to teach you, I am sure he'll help.");
+                        }
                     }
                     else if (answerCon == 2) {
                         System.out.println("Yesh. Your date just stared at you blankly, that's kind of a creepy question to ask on a first date.");
+                        try {
+                          Thread.sleep(3000);
+                        } catch (InterruptedException ex) {
+                          Thread.currentThread().interrupt();
+                        }
+                        System.out.println("Nooo! This date is going terrible! Do something!");
+                        try {
+                          Thread.sleep(3000);
+                        } catch (InterruptedException ex) {
+                          Thread.currentThread().interrupt();
+                        }
+                        System.out.println("How will you recover and regain your date's interest?\n" +
+                                           "1.) Tell them about the fat German kid that drowned in your chocolate pool.\n" +//or did he get stuck in a tube or something I don't know
+                                           "2.) Propose and talk about wedding arrangements.\n" +
+                                           "3.) Too much pressure! End the date immediately and run home.\n");
+                        userResponse = new Scanner(System.in);
+                        int answerCon2 = userResponse.nextInt();
+                        if(answerCon2==1)
+                        {
+                          System.out.println("Your date interrupts you. \"did you say chocolate pool?\". \"Yes\", you reply. It turns out, your date is quite fond of\n" +//wait was it a chocolate lake. I dont remember
+                                             "chocolate. You take them to the factory. They start drinking directly from the pool. Then, they fall into the pool, just like\n" +//now I feel like it was a chocolate lake
+                                             "that fat kid. *Sigh*. Now, you are back to square one. Time to find another date! Yay?");
+                        }
+                        if(answerCon2==2)
+                        {
+                          System.out.println("They say yes and you guys start making arrangements. You guys get married and live happily ever af...\n");
+                          try {
+                            Thread.sleep(4000);
+                          } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                          }
+                          System.out.println("Wait, hold on. Did you actually think this option would work? What a fool! Of course your date leaves you right then and there.\n" +
+                                             "It's cool though. Maybe a golden ticket would come in really handy right about now...");
+                        }
+                        if(answerCon2==3)
+                        {
+                          System.out.println("(•_•) J-just..........Why?");
+                        }
                     }
                     else if (answerCon == 3) {
-                        System.out.println("Your date was outraged at your comment, and splashed water in your face.v");
+                        System.out.println("Your date was outraged at your comment, and splashed water in your face.");
+                        try {
+                          Thread.sleep(3000);
+                        } catch (InterruptedException ex) {
+                          Thread.currentThread().interrupt();
+                        }
+                        System.out.println("They are making a dash for the exit but you don't want them to leave yet!");
+                        try {
+                          Thread.sleep(3000);
+                        } catch (InterruptedException ex) {
+                          Thread.currentThread().interrupt();
+                        }
+                        System.out.println("What will you do to continue the date?\n" +//I think no matter what the user picks, they should lose score
+                                           "1.) Physically block them from leaving and push them back to their seat.\n" +
+                                           "2.) Apologize and say you didn't mean it. Ask for a second chance.\n" +
+                                           "3.) Say, \"it was just a prank bro.\"\n");
+                        userResponse = new Scanner(System.in);
+                        int answerCon3 = userResponse.nextInt();
+                        if(answerCon3==1)
+                        {
+                          System.out.println("Nice job! You don't have a date anymore but smile a little. You have something even better. A court date! See you then!");
+                          try {
+                            Thread.sleep(5000);
+                          } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                          }
+                          System.out.println("You have been sentenced to life in prison.");
+                          try {
+                            Thread.sleep(3000);
+                          } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                          }
+                          System.out.println("Cool!");
+                        }
+                        if(answerCon3==2)
+                        {
+                          System.out.println("Nice choice. You are finally thinking like a normal human being. Too little too late though. Your date does not forgive you\n" +
+                                             "and you are single again for like the 5000th time.");
+                        }
+                        if(answerCon3==3)
+                        {
+                          System.out.println("(•_•)funny prank man. Just take the L and accept that you have ruined yet another date.");
+                        }
                     }
                 } else if (answer1 == 1) {
                     System.out.println("Wrong choice, you should've sat between the competitor and your date. While you were in the bathroom your competitor\n" +
