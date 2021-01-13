@@ -139,7 +139,7 @@ public class Situations extends TheGame {
 
     public void nextSitForAtt1(int a, Single user)
     {
-        if(a==1)//user has 400 health
+        if(a==1)
         {
             System.out.println(attractiveUPAYO11);
             end(decScore(user), user);
@@ -159,7 +159,7 @@ public class Situations extends TheGame {
 
     public void nextSitForAtt2(int a, Single user)
     {
-        if(a==1)//user has 500 health
+        if(a==1)
         {
             System.out.println(attractiveUPAYO21);
         }
@@ -179,7 +179,7 @@ public class Situations extends TheGame {
 
     public void nextSitForAtt3(int a, Single user)
     {
-        if(a==1)//user has 400 health
+        if(a==1)
         {
             System.out.println(attractiveUPAYO31);
             end(decScore(user), user);
@@ -204,6 +204,7 @@ public class Situations extends TheGame {
         {
             System.out.println(attractiveUPAYO111);
             end(decScore(user), user);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -212,6 +213,7 @@ public class Situations extends TheGame {
         {
             System.out.println(attractiveUPAYO112);
             end(decScore(user), user);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -219,6 +221,7 @@ public class Situations extends TheGame {
         if(a==3)
         {
             System.out.println(attractiveUPAYO113);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -230,6 +233,7 @@ public class Situations extends TheGame {
         if(a==1)
         {
             System.out.println(attractiveUPAYO121);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -238,6 +242,7 @@ public class Situations extends TheGame {
         {
             System.out.println(attractiveUPAYO122);
             end(decScore(user), user);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -246,6 +251,7 @@ public class Situations extends TheGame {
         {
             System.out.println(attractiveUPAYO123);
             end(decScore(user), user);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -258,6 +264,7 @@ public class Situations extends TheGame {
         {
             System.out.println(attractiveUPAYO131);
             end(decScore(user), user);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -265,6 +272,7 @@ public class Situations extends TheGame {
         if(a==2)
         {
             System.out.println(attractiveUPAYO132);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -272,6 +280,7 @@ public class Situations extends TheGame {
         if(a==3)
         {
             System.out.println(attractiveUPAYO133);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -283,6 +292,7 @@ public class Situations extends TheGame {
         if(a==1)
         {
             System.out.println(attractiveUPAYO211);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -291,6 +301,7 @@ public class Situations extends TheGame {
         {
             System.out.println(attractiveUPAYO212);
             end(decScore(user), user);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -299,6 +310,7 @@ public class Situations extends TheGame {
         {
             System.out.println(attractiveUPAYO213);
             end(decScore(user), user);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -311,6 +323,7 @@ public class Situations extends TheGame {
         {
             System.out.println(attractiveUPAYO221);
             end(decScore(user), user);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -319,6 +332,7 @@ public class Situations extends TheGame {
         {
             System.out.println(attractiveUPAYO222);
             end(decScore(user), user);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -326,6 +340,7 @@ public class Situations extends TheGame {
         if(a==3)
         {
             System.out.println(attractiveUPAYO223);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -337,6 +352,7 @@ public class Situations extends TheGame {
         if(a==1)
         {
             System.out.println(attractiveUPAYO231);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -345,6 +361,7 @@ public class Situations extends TheGame {
         {
             System.out.println(attractiveUPAYO232);
             end(decScore(user), user);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -353,6 +370,7 @@ public class Situations extends TheGame {
         {
             System.out.println(attractiveUPAYO233);
             end(decScore(user), user);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -364,6 +382,7 @@ public class Situations extends TheGame {
         if(a==1)
         {
             System.out.println(attractiveUPAYO311);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -372,6 +391,7 @@ public class Situations extends TheGame {
         {
             System.out.println(attractiveUPAYO312);
             end(decScore(user), user);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -381,6 +401,7 @@ public class Situations extends TheGame {
         {
             System.out.println(attractiveUPAYO313);
             end(decScore(user), user);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -392,6 +413,7 @@ public class Situations extends TheGame {
         if(a==1)
         {
             System.out.println(attractiveUPAYO321);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -400,6 +422,7 @@ public class Situations extends TheGame {
         {
             System.out.println(attractiveUPAYO322);
             end(decScore(user), user);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -408,6 +431,7 @@ public class Situations extends TheGame {
         {
             System.out.println(attractiveUPAYO323);
             end(decScore(user), user);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -419,6 +443,7 @@ public class Situations extends TheGame {
         if(a==1)
         {
             System.out.println(attractiveUPAYO331);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -427,6 +452,7 @@ public class Situations extends TheGame {
         {
             System.out.println(attractiveUPAYO332);
             end(decScore(user), user);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -434,6 +460,7 @@ public class Situations extends TheGame {
         if(a==3)
         {
             System.out.println(attractiveUPAYO333);
+            System.out.println(winnerLooser(user.getScore()));
             System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                     "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -442,13 +469,13 @@ public class Situations extends TheGame {
 
     /**
      * returns a random number by which the score will decrease
-     * @param user needs the Single to use its health
-     * @return returns a number that is less than the users health hopefully.
+     * @param user needs the Single to use its score
+     * @return returns a number that is less than the users score hopefully.
      */
     public static int decScore(Single user){
         int[] nums = new int[10];
         for(int i = 0; i<nums.length; i++){
-            nums[i] = randomGenerator(user.getHealth(),5);
+            nums[i] = randomGenerator(user.getScore(),5);
         }
         int max = 0;
         int min = Integer.MAX_VALUE;
