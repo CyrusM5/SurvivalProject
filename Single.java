@@ -1,20 +1,10 @@
 public class Single {
     private String name;
-    private int health;
-    private String[] interests;
-    //I deleted background because it's based on the adjective that the user chooses
-    //to describe themselves -- see the main method(TheGame.java)
+    public static int score;
 
-    public Single(String n, int h, String[] i)
-    {
+    public Single(String n, int h){
         name = n;
-        health = h;
-        String[] interests = i;
-    }
-    public Single(String n, int h)
-    {
-      this.name = n;
-      this.health = h;
+        score = h;
     }
 
     public Single() {
@@ -30,21 +20,13 @@ public class Single {
     {
         name = n;
     }
-    public int getHealth()
+    public int getScore()
     {
-        return health;
+        return score;
     }
 
-    public void setHealth(int g)
+    public void setScore(int g)
     {
-        health = g;
+        score = g;
     }
-    public String[] getInterests()  //doesnt work
-    {
-        return interests;
-    }
-    //  public void setInterests(String d)   //doesnt work
-    // {
-    //      interests = d;
-    //  }
 }
