@@ -44,19 +44,22 @@ public class TheGame {
             largeNumber = largeNumber/10;
             d--;
         }
+        if(finalNumber < 3){
+            finalNumber = 3;
+        }
         return finalNumber*100;
     }
 
     /**
-     * decreases the health of the given character
-     * @param decrease number by which the health decreases
-     * @param s object whose health decreases
+     * decreases the score of the given character
+     * @param decrease number by which the score decreases
+     * @param s object whose score decreases
      */
     public static void end(int decrease, Single s) {
-        if (s.getHealth() > 0 && decrease <= s.getHealth()) {
-            s.setHealth(s.getHealth() - decrease);
+        if (s.getScore() > 0 && decrease <= s.getScore()) {
+            s.setScore(s.getScore() - decrease);
         }
-        System.out.println("Score: " + s.getHealth());
+        System.out.println("Score: " + s.getScore());
     }
     /**
      * prints out the updated score
@@ -68,13 +71,13 @@ public class TheGame {
     }
     /**
      * returns a random number by which the score will decrease
-     * @param user needs the Single to use its health
-     * @return returns a number that is less than the users health hopefully.
+     * @param user needs the Single to use its score
+     * @return returns a number that is less than the users score hopefully.
      */
     private static int decScore(Single user){
         int[] nums = new int[10];
         for(int i = 0; i<nums.length; i++){
-            nums[i] = randomGenerator(user.getHealth(),5);
+            nums[i] = randomGenerator(user.getScore(),5);
         }
         int max = 0;
         int min = Integer.MAX_VALUE;
@@ -87,6 +90,18 @@ public class TheGame {
             }
         }
         return max - min;
+    }
+
+    /**
+     * tells the user whether they won or lost based on the score.
+     * @param score the user's score
+     * @return whether the user won or lost
+     */
+    public static String winnerLooser(int score){
+        if(score >= 150){
+            return "You won!";
+        }
+        else return "You lost :(";
     }
 
     public static void main(String[] args) {
@@ -140,28 +155,27 @@ public class TheGame {
         //************************************************************************************************************************************
 
         int assist = findMinDigit(randomGenerator(Integer.MAX_VALUE, 1));
-        int userStartingScore = setStartingScore(randomGenerator(600, 1), assist);
+        int userStartingScore = setStartingScore(randomGenerator(Integer.MAX_VALUE, 1), assist);
 
         //all the characters in the game
-        String[] userInterests = {};
         Single cyrus = new Single("Cyrus", 250);
         Single arina = new Single("Arina", 200);
         Single halil = new Single("Halil", 199);
-        Single user = new Single("", userStartingScore, userInterests);//this is the main character
+        Single user = new Single("", userStartingScore);//this is the main character
         Competitor theCompetitor = new Competitor("", 0);
         int count = 0;
         int random = randomGenerator(100, 1);
         Single [] competitors = {arina, cyrus, halil};
 
-        //generates a random competitor based on whether or not a random number divided by the health generates a
+        //generates a random competitor based on whether or not a random number divided by the score generates a
         //certain remainder.
         for(Single i: competitors){
-            int number = i.getHealth()%random;
+            int number = i.getScore()%random;
             if(number == 0 || number == 1 || number == 2 || number == 3){
                 theCompetitor = new Competitor(i);
                 break;
             }
-            if(count == 2 &&(theCompetitor.getHealth() == 0)){
+            if(count == 2 &&(theCompetitor.getScore() == 0)){
                 theCompetitor = new Competitor(i);
             }
             count++;
@@ -178,8 +192,8 @@ public class TheGame {
         //Sets the name for User and explains directions.
         user.setName(name);
         System.out.println(user.getName() + ", welcome to the simulation!");
-        System.out.println("You start out with " + user.getHealth() + " health");
-        System.out.println("You have to follow directions and make the right choices, if you run out of health, that means you're dead. Good luck! :)");
+        System.out.println("You start out with " + user.getScore() + " score");
+        System.out.println("You have to follow directions and make the right choices, at the end of the game you will be told whether you won or lost based on your score. Good luck! :)");
         System.out.println("Please press any key to continue.");
         character = new Scanner(System.in);
         String enter = character.nextLine();
@@ -198,7 +212,7 @@ public class TheGame {
             System.out.print(mrP.getNArr()[i]+" ");
         }
 
-        System.out.println("Great you are now ready to enter the simulation");
+        System.out.println("Great you are now ready to enter the simulation.");
         try {
             Thread.sleep(3000);
         } catch (InterruptedException ex) {
@@ -253,8 +267,9 @@ public class TheGame {
                 Thread.currentThread().interrupt();
             }
             System.out.println("Holy cow!");
-            user.setHealth(0);
-            System.out.println("\nHealth: " + user.getHealth());
+            user.setScore(0);
+            System.out.println("\nScore: " + user.getScore());
+            System.out.println(winnerLooser(user.getScore()));
         }
         //*********************************************************************************************************************************************************************
 
@@ -292,19 +307,19 @@ public class TheGame {
                         Thread.currentThread().interrupt();
                     }
                     System.out.println("What conversation topic can you chose next?\n" +
-                        "1.) What event has shaped your life the most?\n" +
-                        "2.) What is your deepest darkest secret?\n" +
-                        "3.) I thought this date was going to be horrific when I first saw you, but your mind is fascinating.\n");
+                            "1.) What event has shaped your life the most?\n" +
+                            "2.) What is your deepest darkest secret?\n" +
+                            "3.) I thought this date was going to be horrific when I first saw you, but your mind is fascinating.\n");
                     userResponse = new Scanner(System.in);
                     int answerCon = userResponse.nextInt();
                     if (answerCon == 1) {
-                      System.out.println("Excellent! You had an extremely deep and insightful conversation.");
+                        System.out.println("Excellent! You had an extremely deep and insightful conversation.");
                     }
                     else if (answerCon == 2) {
-                      System.out.println("Yesh. Your date just stared at you blankly, that's kind of a creepy question to ask on a first date.");
+                        System.out.println("Yesh. Your date just stared at you blankly, that's kind of a creepy question to ask on a first date.");
                     }
                     else if (answerCon == 3) {
-                      System.out.println("Your date was outraged at your comment, and splashed water in your face.v");
+                        System.out.println("Your date was outraged at your comment, and splashed water in your face.v");
                     }
                 } else if (answer1 == 1) {
                     System.out.println("Wrong choice, you should've sat between the competitor and your date. While you were in the bathroom your competitor\n" +
@@ -318,6 +333,7 @@ public class TheGame {
                         Thread.currentThread().interrupt();
                     }
                     end(decScore(user), user);
+                    System.out.println(winnerLooser(user.getScore()));
                     System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                             "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                             "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
@@ -334,85 +350,88 @@ public class TheGame {
                             "pretty bad right in the face. Soon the police is called and you get taken to jail.\n");
 
                     end(decScore(user), user);
+                    try {
+                        Thread.sleep(7000);
+                    } catch (InterruptedException ex) {
+                        Thread.currentThread().interrupt();
+                    }
+                    System.out.println("It's 10:15pm and you have just been driven to the nearest jail. You notice that one of the jail cells is empty\n" +
+                            "and ask the guards to place you there. They ask you why but you decide not to give any specific reason in case you will be placed\n" +
+                            "in a group cell later, you don't want to give out any information that could be used against you.\n");
+                    try {
+                        Thread.sleep(9000);
+                    } catch (InterruptedException ex) {
+                        Thread.currentThread().interrupt();
+                    }
+                    System.out.println("It's getting later now so you decide to go to sleep. What should you do?\n" +
+                            "1.) Sit on the floor in the corner with your back to the wall and don't take off any of your things.\n" +
+                            "2.) Lie down on the bench or cot without saying anything to the inmates next to you to show dominance.\n" +
+                            "3.) Don't sleep you have to stay alert");
+                    int answer2 = userResponse.nextInt();
+                    if (answer2 == 1) {
+                        System.out.println("Great job, by staying in the corner of the room and not taking off any clothes you don't allow the inmates to\n" +
+                                "play any tricks on you or take any of your stuff(because you always have to assume people are jerks...)");
                         try {
                             Thread.sleep(7000);
                         } catch (InterruptedException ex) {
                             Thread.currentThread().interrupt();
                         }
-                        System.out.println("It's 10:15pm and you have just been driven to the nearest jail. You notice that one of the jail cells is empty\n" +
-                                "and ask the guards to place you there. They ask you why but you decide not to give any specific reason in case you will be placed\n" +
-                                "in a group cell later, you don't want to give out any information that could be used against you.\n");
+                        System.out.println("You survive the night, the next day your dad bails you out of jail and you go home. You decide to never go on a date again...\n");
+                        end(decScore(user), user);
+                        System.out.println(winnerLooser(user.getScore()));
+                        System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely and sad that you're not\n" +
+                                "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                                "highschool relationships ending in marriage your chances of finding your true love in highschool are pretty low...");
+                    }
+                    if (answer2 == 2) {
+                        System.out.println("Wrong choice, when you lie down on the bench or cot without saying anything you're not showing dominance\n" +
+                                "you're giving your fellow inmates a reason to pick on you or claim that you're lying down on their bunk.");
                         try {
-                            Thread.sleep(9000);
+                            Thread.sleep(7000);
                         } catch (InterruptedException ex) {
                             Thread.currentThread().interrupt();
                         }
-                        System.out.println("It's getting later now so you decide to go to sleep. What should you do?\n" +
-                                "1.) Sit on the floor in the corner with your back to the wall and don't take off any of your things.\n" +
-                                "2.) Lie down on the bench or cot without saying anything to the inmates next to you to show dominance.\n" +
-                                "3.) Don't sleep you have to stay alert");
-                        int answer2 = userResponse.nextInt();
-                        if (answer2 == 1) {
-                            System.out.println("Great job, by staying in the corner of the room and not taking off any clothes you don't allow the inmates to\n" +
-                                    "play any tricks on you or take any of your stuff(because you always have to assume people are jerks...)");
-                            try {
-                                Thread.sleep(7000);
-                            } catch (InterruptedException ex) {
-                                Thread.currentThread().interrupt();
-                            }
-                            System.out.println("You survive the night, the next day your dad bails you out of jail and you go home. You decide to never go on a date again...\n");
-                            end(decScore(user), user);
-                            System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely and sad that you're not\n" +
-                                        "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
-                                        "highschool relationships ending in marriage your chances of finding your true love in highschool are pretty low...");
+                        System.out.println("As you lie down on the bench, someone comes up to you and tells you that it's their spot. You're too tired to argue so you get\n" +
+                                "up, but for the rest of the time there people call you \"stinky socks\" because you left them lying out beside the bench when you went to sleep.\n");
+                        System.out.println("The next day your dad bails you out of jail and you get to go home. On the way home you ask him to drive you to the store to get new socks.\n");
+                        try {
+                            Thread.sleep(7000);
+                        } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
                         }
-                        if (answer2 == 2) {
-                            System.out.println("Wrong choice, when you lie down on the bench or cot without saying anything you're not showing dominance\n" +
-                                    "you're giving your fellow inmates a reason to pick on you or claim that you're lying down on their bunk.");
-                            try {
-                                Thread.sleep(7000);
-                            } catch (InterruptedException ex) {
-                                Thread.currentThread().interrupt();
-                            }
-                            System.out.println("As you lie down on the bench, someone comes up to you and tells you that it's their spot. You're too tired to argue so you get\n" +
-                                    "up, but for the rest of the time there people call you \"stinky socks\" because you left them lying out beside the bench when you went to sleep.\n");
-                            System.out.println("The next day your dad bails you out of jail and you get to go home. On the way home you ask him to drive you to the store to get new socks.\n");
-                            try {
-                                Thread.sleep(7000);
-                            } catch (InterruptedException ex) {
-                                Thread.currentThread().interrupt();
-                            }
-                            end(decScore(user), user);
-                            System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
-                                    "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
-                                    "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
-                        }
-                        if (answer2 == 3) {
-                            System.out.println("You decide not to sleep and so you stay up all night. The next day you walk to the bathroom and brush your teeth with a toothbrush but it\n" +
-                                    "turns out it wasn't yours. You were so tired that you didn't even notice. Unfortunately everyone else did. Now everyone thinks you're weird and like using other's\n" +
-                                    "toothbrushes. Great!\n");
-                            try {
-                                Thread.sleep(7000);
-                            } catch (InterruptedException ex) {
-                                Thread.currentThread().interrupt();
-                            }
-                            System.out.println("The next day your dad bails you out of jail and you get to go home. When you make it home you realize that you took the wrong tooth brush...\n");
-                            end(decScore(user), user);
-                                System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
-                                        "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
-                                        "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
-                        }
-                    }
-                }
-                if (serius.equalsIgnoreCase("No")) {
-                    System.out.println("OH NO! The situation was in fact VERY SERIOUS. Your date has left with the competitor, and the bill was 123 times more expensive than you thought it would be! ");
-                    end(user.getHealth(), user);
-                    if (user.getHealth() == 0) {
-                        System.out.println("You lost!! ");
+                        end(decScore(user), user);
+                        System.out.println(winnerLooser(user.getScore()));
                         System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                                 "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                                 "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
                     }
+                    if (answer2 == 3) {
+                        System.out.println("You decide not to sleep and so you stay up all night. The next day you walk to the bathroom and brush your teeth with a toothbrush but it\n" +
+                                "turns out it wasn't yours. You were so tired that you didn't even notice. Unfortunately everyone else did. Now everyone thinks you're weird and like using other's\n" +
+                                "toothbrushes. Great!\n");
+                        try {
+                            Thread.sleep(7000);
+                        } catch (InterruptedException ex) {
+                            Thread.currentThread().interrupt();
+                        }
+                        System.out.println("The next day your dad bails you out of jail and you get to go home. When you make it home you realize that you took the wrong tooth brush...\n");
+                        end(decScore(user), user);
+                        System.out.println(winnerLooser(user.getScore()));
+                        System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
+                                "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                                "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
+                    }
+                }
+            }
+            if (serius.equalsIgnoreCase("No")) {
+                System.out.println("OH NO! The situation was in fact VERY SERIOUS. Your date has left with the competitor, and the bill was 123 times more expensive than you thought it would be! ");
+                end(user.getScore(), user);
+                if (user.getScore() == 0) {
+                    System.out.println(winnerLooser(user.getScore()));
+                    System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
+                            "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                            "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
+                }
             }
 
             //*********************************************************************************************************************************************************************
