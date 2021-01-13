@@ -2,26 +2,26 @@ public class Competitor
 {
     private Single single;
     private String name;
-    private int health;
+    private int score;
     public Competitor(Single character)
     {
-        health = character.getHealth();
+        score = character.getScore();
         name = character.getName();
     }
     public Competitor(String n, int h){
         name = n;
-        health = h;
+        score = h;
     }
     public String toString(){
         return "Your competitor is " + name + ".\n";
     }
-    public void setDecHealth(int decrease){
-        health = health - decrease;
+    public void setDecScore(int decrease){
+        score = score - decrease;
     }
-    public  int getHealth(){
-        return health;
+    public  int getScore(){
+        return score;
     }
-    public void setHealth(int health){this.health = health;}
+    public void setScore(int score){this.score = score;}
     public void setName(String name){this.name = name;}
 
     public String getName(){
