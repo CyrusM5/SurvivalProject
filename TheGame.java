@@ -114,19 +114,25 @@ public class TheGame {
         Person mrP = new Person();
         int score = 0;
         int scores[] = new int [5];
-        Question goodO = new Question("Leans in", randomGenerator(1, 0));
-        Question goodTw = new Question("Makes good eye contact", randomGenerator(2, 1));
-        Question goodTh = new Question("Moves when you do", randomGenerator(3, 1));
-        Question goodFo = new Question("Parts lips", randomGenerator(2, 1));
-        Question goodFi = new Question("Touches face, cheek", randomGenerator(1, 0));
-        Question goodS = new Question("Twirls hair", randomGenerator(2, 1));
-        Question badO = new Question("Clenches jaw", randomGenerator(3, 1));
-        Question badTw = new Question("Holds finger to chin or lips", randomGenerator(2, 1));
-        Question badTh = new Question("Look away", randomGenerator(1, 0));
-        Question badFo = new Question("Rubs neck or head", randomGenerator(2, 1));
-        Question badFi = new Question("Shifts weight", randomGenerator(3, 1));
-        Question badS = new Question("Slouches", randomGenerator(2, 1));
-        Question[] questionArray = {goodO, goodTw, goodTh, goodFo, goodFi, goodS, badO, badTw, badTh, badFo, badFi, badS};
+        Question goodO = new Question("Leans in", randomGenerator(3, 0));
+        Question goodTw = new Question("Makes good eye contact", randomGenerator(3, 0));
+        Question goodTh = new Question("Moves when you do", randomGenerator(3, 0));
+        Question goodFo = new Question("Parts lips", randomGenerator(3, 0));
+        Question goodFi = new Question("Touches face, cheek", randomGenerator(3, 0));
+        Question goodS = new Question("Twirls hair", randomGenerator(3, 0));
+        Question badO = new Question("Clenches jaw", randomGenerator(3, 0));
+        Question badTw = new Question("Holds finger to chin or lips", randomGenerator(3, 0));
+        Question badTh = new Question("Look away", randomGenerator(3, 0));
+        Question badFo = new Question("Rubs neck or head", randomGenerator(3, 0));
+        Question badFi = new Question("Shifts weight", randomGenerator(3, 0));
+        Question badS = new Question("Slouches", randomGenerator(3, 0));
+        goodO = goodO.getQuestion();
+        goodTw = goodTw.getQuestion();
+        goodTh = goodTh.getQuestion();
+        badFo = badFo.getQuestion();
+        badFi = badFi.getQuestion();
+        badS = badS.getQuestion();
+        Question[] questionArray = {goodO.getQuestion(), goodTw, goodTh, goodFo, goodFi, goodS, badO, badTw, badTh, badFo, badFi, badS};
         int oneQ = 0;
         int twoQ = 0;
         int threeQ = 0;
@@ -206,7 +212,7 @@ public class TheGame {
         //the mini-game
         score = 0;
         score = mrP.goodOrBad(goodArray, badArray);
-        double average = 0;
+        /*goodgooddouble average = 0;
         average = mrP.avErage(mrP.getNArr());
         int mode = 0;
         mode = mrP.moDe(mrP.getNArr());
@@ -214,7 +220,7 @@ public class TheGame {
         //System.out.println(mrP.getNArr());
         for (int i = 0; i < mrP.getNArr().length; i++){
             System.out.print(mrP.getNArr()[i]+" ");
-        }
+        }*/
 
         System.out.println("Great you are now ready to enter the simulation.");
         try {
