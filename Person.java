@@ -75,6 +75,10 @@ public class Person
   }
   public int goodOrBad(String[] a, String[] b){
     int q = 0;
+    int wu = 0;
+    Question[] quesArr = new Question[12];
+    int[] freqArr = new int[12];
+    int[] wordArr = new int[12];
     int[] average = new int[12];
     int correctA = 0;
     int cAns = 0;
@@ -87,70 +91,66 @@ public class Person
     {
       boolean validAnswer = false;
       while(validAnswer == false){
-      System.out.println("Your date: "+a[i]+" - good or bad?");
-      String good = minigame.nextLine();
-      if (good.equalsIgnoreCase("good"))
-      {
-        validAnswer = true;
-        correctA++;
-        cAns++;
-        nums[inT] = 1;
-        inT++;
-        levelNum = a[i].substring(a[i].indexOf("level")+6,a[i].indexOf("level")+7);
-        level = Integer.parseInt(levelNum.trim());
-        average[w++] = level;
-      }
-      else if (good.equalsIgnoreCase("bad"))
-      {
-        validAnswer = true;
-        wAns++;
-        nums[inT] = 0;
-        inT++;
-        average[w++] = 0;
-      }
-      else
-      {
-        validAnswer = false;
-        System.out.println("Please enter an appropriate answer.");
-      }
+        System.out.println("Your date: "+a[i]+" - good or bad?");
+        String good = minigame.nextLine();
+        if (good.equalsIgnoreCase("good"))
+        {
+          validAnswer = true;
+          correctA++;
+          cAns++;
+          nums[inT] = 1;
+          inT++;
+          levelNum = a[i].substring(a[i].indexOf("level")+6,a[i].indexOf("level")+7);
+          level = Integer.parseInt(levelNum.trim());
+          average[w++] = level;
+        }
+        else if (good.equalsIgnoreCase("bad"))
+        {
+          validAnswer = true;
+          wAns++;
+          nums[inT] = 0;
+          inT++;
+          average[w++] = 0;
+        }
+        else
+        {
+          validAnswer = false;
+          System.out.println("Please enter an appropriate answer.");
+        }
       }
       boolean validAnswer2 = false;
       while(validAnswer2 == false){
-      System.out.println("Your date: "+b[i]+" - good or bad?");
-      String bad = minigame.nextLine();
-      if (bad.equalsIgnoreCase("bad"))
-      {
-        validAnswer2 = true;
-        correctA++;
-        cAns++;
-        nums[inT] = 1;
-        inT++;
-        levelNum = b[i].substring(b[i].indexOf("level")+6,b[i].indexOf("level")+7);
-        level = Integer.parseInt(levelNum.trim());
-        average[w++] = level;
-      }
-      else if (bad.equalsIgnoreCase("good"))
-      {
-        validAnswer2 = true;
-        wAns++;
-        nums[inT] = 0;
-        inT++;
-        average[w++] = 0;
-      }
-      else
-      {
-        validAnswer2 = false;
-        System.out.println("Please enter an appropriate answer.");
-      }
+        System.out.println("Your date: "+b[i]+" - good or bad?");
+        String bad = minigame.nextLine();
+        if (bad.equalsIgnoreCase("bad"))
+        {
+          validAnswer2 = true;
+          correctA++;
+          cAns++;
+          nums[inT] = 1;
+          inT++;
+          levelNum = b[i].substring(b[i].indexOf("level")+6,b[i].indexOf("level")+7);
+          level = Integer.parseInt(levelNum.trim());
+          average[w++] = level;
+        }
+        else if (bad.equalsIgnoreCase("good"))
+        {
+          validAnswer2 = true;
+          wAns++;
+          nums[inT] = 0;
+          inT++;
+          average[w++] = 0;
+        }
+        else
+        {
+          validAnswer2 = false;
+          System.out.println("Please enter an appropriate answer.");
+        }
       }
     }
     int sum = 0;
     double mean = 0;
-    for (int i: average)
-    {
-      sum += i;
-      System.out.print (i+" ");
-    }
+    
     mean = (double)sum/average.length;
     int frequency = 0;
     int mode = 0;
@@ -165,6 +165,8 @@ public class Person
           frequency++;
         }
       }
+      freqArr[q++] = frequency;
+      wordArr[wu++] = i;
       if (frequency > highestFrequency)
       {
         highestFrequency = frequency;
@@ -172,6 +174,54 @@ public class Person
       }
       frequency = 0;
     }
+    /*for (int i: average)
+     {
+     sum += i;
+     System.out.print (i+" ");
+     }
+     System.out.println();
+     for (int i: freqArr)
+     {
+     System.out.print (i+" ");
+     }*/
+    System.out.println();
+    for (int i = 0; i < freqArr.length; i++)
+    {
+      if (average[i]!=0 && freqArr[i]!=0)
+      {
+        quesArr[i] = new Question (average[i], freqArr[i]);
+      }
+    }
+    for (int i = 0; i < quesArr.length; i++) 
+    {
+      for (int j = i + 1; j < quesArr.length; j++) 
+      {
+        try{
+          if ((quesArr[i]).getNumber() > (quesArr[j]).getNumber()) 
+          {
+            Question temp = quesArr[i];
+            quesArr[i] = quesArr[j];
+            quesArr[j] = temp;
+          }
+        }
+        catch(NullPointerException we){
+        }
+      }
+    }
+    for (int i = 0; i < quesArr.length; i++)
+    {
+      try{
+          System.out.println((quesArr[i]).toTString());
+      }
+      catch(NullPointerException qw){
+      }
+    }
+    for (int i: average)
+     {
+     sum += i;
+     System.out.print (i+" ");
+     }
+    mean = (double)sum/average.length;
     System.out.println("You got "+correctA+" out of "+(wAns+cAns)+" correct.");
     System.out.println("Your total score was "+ sum +".");
     System.out.println("Your average score was "+ mean +".");
