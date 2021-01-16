@@ -38,10 +38,10 @@ public class TheGame {
         int finalNumber = 0;
         int d = String.valueOf(largeNumber).length();
         if(d<digit)
-          d=0;
+            d=0;
         else
-          d = d-digit;
-        
+            d = d-digit;
+
         while (d > 0)
         {
             finalNumber = largeNumber%10;
@@ -202,7 +202,7 @@ public class TheGame {
         //Sets the name for User and explains directions.
         user.setName(name);
         System.out.println(user.getName() + ", welcome to the simulation!");
-        System.out.println("You start out with " + user.getScore() + " score");
+        System.out.println("You start out with " + user.getScore() + " points");
         System.out.println("You have to follow directions and make the right choices, at the end of the game you will be told whether you won or lost based on your score. Good luck! :)");
         System.out.println("Please press any key to continue.");
         character = new Scanner(System.in);
@@ -279,6 +279,7 @@ public class TheGame {
             System.out.println("Holy cow!");
             user.setScore(0);
             System.out.println("\nScore: " + user.getScore());
+            end(decScore(user),user);
             System.out.println(winnerLooser(user.getScore()));
         }
         //*********************************************************************************************************************************************************************
@@ -287,7 +288,7 @@ public class TheGame {
         if (personality.equalsIgnoreCase("Willy Wonka")) {
             boolean validAnswer = true;
             System.out.println("You signed up for Tinder and described yourself as \"Willy Wonka\".");
-            System.out.println("You arrived at the restaurant and you see your attractive date. You walk up to them and start a conversation\n" +
+            System.out.println("You arrived at the restaurant and you see your date. You walk up to them and start a conversation\n" +
                     "about candy and your date seems very interested.\n");
             System.out.println("You're smiling too much and scaring away your date\nOh no! A competitor has arrived");
 
@@ -325,144 +326,235 @@ public class TheGame {
                     if (answerCon == 1) {
                         System.out.println("Excellent! You had an extremely deep and insightful conversation.");
                         try {
-                          Thread.sleep(3000);
+                            Thread.sleep(3000);
                         } catch (InterruptedException ex) {
-                          Thread.currentThread().interrupt();
+                            Thread.currentThread().interrupt();
                         }
                         System.out.println("You talk for hours and you had a great day. So did your date! It's now the end of the date and your chance to do something special.");
                         try {
-                          Thread.sleep(3000);
+                            Thread.sleep(3000);
                         } catch (InterruptedException ex) {
-                          Thread.currentThread().interrupt();
+                            Thread.currentThread().interrupt();
                         }
                         System.out.println("How will you seize the opportunity?\n" +
-                                           "1.) Exchange phone numbers and arrange another date.\n" +
-                                           "2.) Bring out your origami toolkit and craft a rose and then gift it to your date.\n" +
-                                           "3.) Take your date to a party with a DJ and bust out your world-famous dance moves.\n");
+                                "1.) Exchange phone numbers and arrange another date.\n" +
+                                "2.) Bring out your origami toolkit and craft a rose and then gift it to your date.\n" +
+                                "3.) Take your date to a party with a DJ and bust out your world-famous dance moves.\n");
                         userResponse = new Scanner(System.in);
                         int answerCon1 = userResponse.nextInt();
                         if(answerCon1==1)
                         {
-                          System.out.println("Yes! You successfully exchanged phone numbers and set a reservation at the same restaurant for 8 PM that weekend.\n" +
-                                             "But oh no! The phone number seems to be wrong and when you go to the restaurant that weekend, you realize you have\n" +
-                                             "been stood up. Maybe your date wasn't really interested in you at all...:(");
+                            System.out.println("Yes! You successfully exchanged phone numbers and set a reservation at the same restaurant for 8 PM that weekend.\n" +
+                                    "But oh no! The phone number seems to be wrong and when you go to the restaurant that weekend, you realize you have\n" +
+                                    "been stood up. Maybe your date wasn't really interested in you at all...:(");
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
+                            end(decScore(user), user);
+                            System.out.println(winnerLooser(user.getScore()));
+                            System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
+                                    "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                                    "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
                         }
                         if(answerCon1==2)
                         {
-                          System.out.println("Your date watches in amazement as you take out your origami toolkit. They are filled with happiness once you finish\n" +
-                                             "constructing the rose and giving it to them as a present. You have definitely earned yourself another date!");
-                          try {
-                            Thread.sleep(3000);
-                          } catch (InterruptedException ex) {
-                            Thread.currentThread().interrupt();
-                          }
-                          System.out.println("Three years later...");
-                          try {
-                            Thread.sleep(1500);
-                          } catch (InterruptedException ex) {
-                            Thread.currentThread().interrupt();
-                          }
-                          System.out.println("You are now happily married. You have renovated your chocolate factory into an origami factory. Your origami business\n" +
-                                             "venture fails and now you are broke. But hey, at least you successfully dated, right? Right?");
+                            System.out.println("Your date watches in amazement as you take out your origami toolkit. They are filled with happiness once you finish\n" +
+                                    "constructing the rose and giving it to them as a present. You have definitely earned yourself another date!");
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
+                            System.out.println("Three years later...");
+                            try {
+                                Thread.sleep(1500);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
+                            System.out.println("You are now happily married. You have renovated your chocolate factory into an origami factory. Your origami business\n" +
+                                    "venture fails and now you are broke. But hey, at least you successfully dated, right? Right?");
+                            try {
+                                Thread.sleep(1500);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
+                            end(decScore(user), user);
+                            System.out.println(winnerLooser(user.getScore()));
+                            System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
+                                    "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                                    "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
                         }
                         if(answerCon1==3)
                         {
-                          System.out.println("Ah yes. Your \"world famous\" dance moves. It is not as good as you think, just stop. But you don't, and your date is\n" +
-                                             "disgusted. You attempt to show off to your date your \"blind person\" dance routine where you dance with a blindfold on.\n" +
-                                             "And you dance and dance and dance throughout the night.");
-                          try {
-                            Thread.sleep(7000);
-                          } catch (InterruptedException ex) {
-                            Thread.currentThread().interrupt();
-                          }
-                          System.out.println("You take your blindfold off and notice your date has left you while you were dancing. You also notice they blocked you on Tinder\n" +
-                                             "It's ok. Maybe you can use this time to learn real dance moves. Ask Halil to teach you, I am sure he'll help.");
+                            System.out.println("Ah yes. Your \"world famous\" dance moves. It is not as good as you think, just stop. But you don't, and your date is\n" +
+                                    "disgusted. You attempt to show off to your date your \"blind person\" dance routine where you dance with a blindfold on.\n" +
+                                    "And you dance and dance and dance throughout the night.");
+                            try {
+                                Thread.sleep(7000);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
+                            System.out.println("You take your blindfold off and notice your date has left you while you were dancing. You also notice they blocked you on Tinder\n" +
+                                    "It's ok. Maybe you can use this time to learn real dance moves. Ask Halil to teach you, I am sure he'll help.");
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
+                            end(decScore(user), user);
+                            System.out.println(winnerLooser(user.getScore()));
+                            System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
+                                    "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                                    "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
                         }
                     }
                     else if (answerCon == 2) {
                         System.out.println("Yesh. Your date just stared at you blankly, that's kind of a creepy question to ask on a first date.");
                         try {
-                          Thread.sleep(3000);
+                            Thread.sleep(3000);
                         } catch (InterruptedException ex) {
-                          Thread.currentThread().interrupt();
+                            Thread.currentThread().interrupt();
                         }
+                        end(decScore(user), user);
                         System.out.println("Nooo! This date is going terrible! Do something!");
                         try {
-                          Thread.sleep(3000);
+                            Thread.sleep(3000);
                         } catch (InterruptedException ex) {
-                          Thread.currentThread().interrupt();
+                            Thread.currentThread().interrupt();
                         }
                         System.out.println("How will you recover and regain your date's interest?\n" +
-                                           "1.) Tell them about the fat German kid that drowned in your chocolate pool.\n" +//or did he get stuck in a tube or something I don't know
-                                           "2.) Propose and talk about wedding arrangements.\n" +
-                                           "3.) Too much pressure! End the date immediately and run home.\n");
+                                "1.) Tell them about the fat German kid that drowned in your chocolate pool.\n" +//or did he get stuck in a tube or something I don't know
+                                "2.) Propose and talk about wedding arrangements.\n" +
+                                "3.) Too much pressure! End the date immediately and run home.\n");
                         userResponse = new Scanner(System.in);
                         int answerCon2 = userResponse.nextInt();
                         if(answerCon2==1)
                         {
-                          System.out.println("Your date interrupts you. \"did you say chocolate pool?\". \"Yes\", you reply. It turns out, your date is quite fond of\n" +//wait was it a chocolate lake. I dont remember
-                                             "chocolate. You take them to the factory. They start drinking directly from the pool. Then, they fall into the pool, just like\n" +//now I feel like it was a chocolate lake
-                                             "that fat kid. *Sigh*. Now, you are back to square one. Time to find another date! Yay?");
+                            System.out.println("Your date interrupts you. \"did you say chocolate pool?\". \"Yes\", you reply. It turns out, your date is quite fond of\n" +//wait was it a chocolate lake. I dont remember
+                                    "chocolate. You take them to the factory. They start drinking directly from the pool. Then, they fall into the pool, just like\n" +//now I feel like it was a chocolate lake
+                                    "that fat kid. *Sigh*. Now, you are back to square one. Time to find another date! Yay?");
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
+                            end(decScore(user), user);
+                            System.out.println(winnerLooser(user.getScore()));
+                            System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
+                                    "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                                    "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
                         }
                         if(answerCon2==2)
                         {
-                          System.out.println("They say yes and you guys start making arrangements. You guys get married and live happily ever af...\n");
-                          try {
-                            Thread.sleep(4000);
-                          } catch (InterruptedException ex) {
-                            Thread.currentThread().interrupt();
-                          }
-                          System.out.println("Wait, hold on. Did you actually think this option would work? What a fool! Of course your date leaves you right then and there.\n" +
-                                             "It's cool though. Maybe a golden ticket would come in really handy right about now...");
+                            System.out.println("They say yes and you guys start making arrangements. You guys get married and live happily ever af...\n");
+                            try {
+                                Thread.sleep(4000);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
+                            System.out.println("Wait, hold on. Did you actually think this option would work? What a fool! Of course your date leaves you right then and there.\n" +
+                                    "It's cool though. Maybe a golden ticket would come in really handy right about now...");
+                            try {
+                                Thread.sleep(4000);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
+                            end(decScore(user), user);
+                            System.out.println(winnerLooser(user.getScore()));
+                            System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
+                                    "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                                    "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
                         }
                         if(answerCon2==3)
                         {
-                          System.out.println("(•_•) J-just..........Why?");
+                            System.out.println("(•_•) J-just..........Why?");
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
+                            end(decScore(user), user);
+                            System.out.println(winnerLooser(user.getScore()));
+                            System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
+                                    "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                                    "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
                         }
                     }
                     else if (answerCon == 3) {
                         System.out.println("Your date was outraged at your comment, and splashed water in your face.");
                         try {
-                          Thread.sleep(3000);
+                            Thread.sleep(3000);
                         } catch (InterruptedException ex) {
-                          Thread.currentThread().interrupt();
+                            Thread.currentThread().interrupt();
                         }
+                        end(decScore(user), user);
                         System.out.println("They are making a dash for the exit but you don't want them to leave yet!");
                         try {
-                          Thread.sleep(3000);
+                            Thread.sleep(3000);
                         } catch (InterruptedException ex) {
-                          Thread.currentThread().interrupt();
+                            Thread.currentThread().interrupt();
                         }
                         System.out.println("What will you do to continue the date?\n" +//I think no matter what the user picks, they should lose score
-                                           "1.) Physically block them from leaving and push them back to their seat.\n" +
-                                           "2.) Apologize and say you didn't mean it. Ask for a second chance.\n" +
-                                           "3.) Say, \"it was just a prank bro.\"\n");
+                                "1.) Physically block them from leaving and push them back to their seat.\n" +
+                                "2.) Apologize and say you didn't mean it. Ask for a second chance.\n" +
+                                "3.) Say, \"it was just a prank bro.\"\n");
                         userResponse = new Scanner(System.in);
                         int answerCon3 = userResponse.nextInt();
                         if(answerCon3==1)
                         {
-                          System.out.println("Nice job! You don't have a date anymore but smile a little. You have something even better. A court date! See you then!");
-                          try {
-                            Thread.sleep(5000);
-                          } catch (InterruptedException ex) {
-                            Thread.currentThread().interrupt();
-                          }
-                          System.out.println("You have been sentenced to life in prison.");
-                          try {
-                            Thread.sleep(3000);
-                          } catch (InterruptedException ex) {
-                            Thread.currentThread().interrupt();
-                          }
-                          System.out.println("Cool!");
+                            System.out.println("Nice job! You don't have a date anymore but smile a little. You have something even better. A court date! See you then!");
+                            try {
+                                Thread.sleep(5000);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
+                            System.out.println("You have been sentenced to life in prison.");
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
+                            System.out.println("Cool!");
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
+                            end(decScore(user), user);
+                            System.out.println(winnerLooser(user.getScore()));
+                            System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
+                                    "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                                    "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
                         }
-                        if(answerCon3==2)
+                        else if(answerCon3==2)
                         {
-                          System.out.println("Nice choice. You are finally thinking like a normal human being. Too little too late though. Your date does not forgive you\n" +
-                                             "and you are single again for like the 5000th time.");
+                            System.out.println("Nice choice. You are finally thinking like a normal human being. Too little too late though. Your date does not forgive you\n" +
+                                    "and you are single again for like the 5000th time.");
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
+                            System.out.println(winnerLooser(user.getScore()));
+                            System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
+                                    "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                                    "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
                         }
-                        if(answerCon3==3)
+                        else if(answerCon3==3)
                         {
-                          System.out.println("(•_•)funny prank man. Just take the L and accept that you have ruined yet another date.");
+                            System.out.println("(•_•)funny prank man. Just take the L and accept that you have ruined yet another date.");
+                            try {
+                                Thread.sleep(3000);
+                            } catch (InterruptedException ex) {
+                                Thread.currentThread().interrupt();
+                            }
+                            end(decScore(user), user);
+                            System.out.println(winnerLooser(user.getScore()));
+                            System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
+                                    "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
+                                    "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
                         }
                     }
                 } else if (answer1 == 1) {
@@ -481,13 +573,6 @@ public class TheGame {
                     System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
                             "in a relationship with someone in highschool don't stress it so much. With About 50% of marriages in America ending in divorce and only 2% of\n" +
                             "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
-
-                    //score(2, Single.finalScore);
-                    try {
-                        Thread.sleep(7000);
-                    } catch (InterruptedException ex) {
-                        Thread.currentThread().interrupt();
-                    }
                 } else if (answer1 == 3) {
                     System.out.println("OHHHH nooo!! You decide to throw the onion at your competitor and completely forget that for the past\n" +
                             "2 months you have actually stuck to your diet and been working out. So when you throw the onion you end up hitting them\n" +
@@ -558,7 +643,7 @@ public class TheGame {
                         } catch (InterruptedException ex) {
                             Thread.currentThread().interrupt();
                         }
-                        System.out.println("The next day your dad bails you out of jail and you get to go home. When you make it home you realize that you took the wrong tooth brush...\n");
+                        System.out.println("The next day your dad bails you out of jail and you get to go home. When you make it home you realize that you took the wrong toothbrush...\n");
                         end(decScore(user), user);
                         System.out.println(winnerLooser(user.getScore()));
                         System.out.println("Congratulations you have finished the game! We hope you liked it. In all seriousness though if you feel lonely or sad that you're not\n" +
