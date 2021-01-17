@@ -248,12 +248,6 @@ public class Person
       else if (personality.equalsIgnoreCase("attractive")){
         validAnswer = true;
       }
-      else if (personality.equalsIgnoreCase("weird")){
-        validAnswer = true;
-      }
-      else if (personality.equalsIgnoreCase("quirky")){
-        validAnswer = true;
-      }
       else {
         validAnswer = false;
         System.out.println("Please enter an appropriate answer.");
@@ -262,5 +256,55 @@ public class Person
     return personality ;
   }
   
+  public String sAnswer (String question)
+  {
+    boolean seriousAnswer = false;
+    String serious = "";
+    while(seriousAnswer == false){
+      System.out.println(question);
+      Scanner character = new Scanner(System.in);
+      serious = character.nextLine();
+      if (serious.equalsIgnoreCase("yes")){
+        seriousAnswer = true;
+      }
+      else if (serious.equalsIgnoreCase("no")){
+        seriousAnswer = true;
+      }
+      else {
+        seriousAnswer = false;
+        System.out.println("Please enter an appropriate answer. (yes or no)");
+      }
+    }
+    return serious;
+  }
+  
+  public int nAnswer (String question)
+  {
+    boolean numberAnswer = false;
+    int number = 0;
+    while(numberAnswer == false){
+      System.out.println(question);
+      Scanner character = new Scanner(System.in);
+      while (!character.hasNextInt()) {
+        System.out.println("Input is not a whole number. Type a whole number");
+        character.next();
+    }
+      number = character.nextInt();
+      if (number==1){
+        numberAnswer = true;
+      }
+      else if (number==2){
+        numberAnswer = true;
+      }
+      else if (number==3){
+        numberAnswer = true;
+      }
+      else {
+        numberAnswer = false;
+        System.out.println("Please enter an appropriate answer. (1, 2, or 3)");
+      }
+    }
+    return number;
+  }
 }
 
