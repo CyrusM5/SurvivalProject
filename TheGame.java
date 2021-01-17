@@ -203,16 +203,16 @@ public class TheGame {
         user.setName(name);
         System.out.println(user.getName() + ", welcome to the simulation!");
         System.out.println("You start out with " + user.getScore() + " points");
-        System.out.println("You have to follow directions and make the right choices, at the end of the game you will be told whether you won or lost based on your score. Good luck! :)");
+        System.out.println("You have to follow directions and make the right choices. At the end of the game, you will be told whether you won or lost based on your score. Good luck! :)");
         System.out.println("Please press any key to continue.");
         character = new Scanner(System.in);
         String enter = character.nextLine();
-        System.out.println("Before the simulation begins you have to play this mini-game. This game will test you knowledge" +
+        System.out.println("Before the simulation begins, you have to play this mini-game. This game will test your knowledge " +
                 "of basic body language on a date. Please answer with \"good\" or \"bad\"");
         //the mini-game
         score = 0;
         score = mrP.goodOrBad(goodArray, badArray);
-        /*goodgooddouble average = 0;
+        double average = 0;
         average = mrP.avErage(mrP.getNArr());
         int mode = 0;
         mode = mrP.moDe(mrP.getNArr());
@@ -220,9 +220,9 @@ public class TheGame {
         //System.out.println(mrP.getNArr());
         for (int i = 0; i < mrP.getNArr().length; i++){
             System.out.print(mrP.getNArr()[i]+" ");
-        }*/
+        }
 
-        System.out.println("Great you are now ready to enter the simulation.");
+        System.out.println("Great! You are now ready to enter the simulation.");
         try {
             Thread.sleep(3000);
         } catch (InterruptedException ex) {
@@ -294,16 +294,13 @@ public class TheGame {
 
             System.out.println(theCompetitor);
             System.out.println("You take a step, and look them straight in the eye. ");
-            System.out.println("Do you believe this situation is serious?");
-            Scanner serious = new Scanner(System.in);
-            String serius = serious.nextLine();
+            
+            String serius = mrP.sAnswer("Do you believe this situation is serious?");
             if (serius.equalsIgnoreCase("Yes")) {
-                System.out.println("What should you do next?\n" +
+                int answer1 = mrP.nAnswer("What should you do next?\n" +
                         "1.) Go to the bathroom\n" +
                         "2.) Sit between the competitor and your date\n" +
                         "3.) Throw an onion at your competitor\n");
-                Scanner userResponse = new Scanner(System.in);
-                int answer1 = userResponse.nextInt();
                 if (answer1 == 2) {
                     System.out.println("Good job! you win this one...");
                     try {
@@ -317,12 +314,11 @@ public class TheGame {
                     } catch (InterruptedException ex) {
                         Thread.currentThread().interrupt();
                     }
-                    System.out.println("Luckily, you came prepared. What conversation topic do you choose next?\n" +
+                    
+                    int answerCon = mrP.nAnswer("Luckily, you came prepared. What conversation topic do you choose next?\n" +
                             "1.) What event has shaped your life the most?\n" +
                             "2.) What is your deepest darkest secret?\n" +
                             "3.) Talk about how your date's intelligence makes up for their lack of beauty.\n");
-                    userResponse = new Scanner(System.in);
-                    int answerCon = userResponse.nextInt();
                     if (answerCon == 1) {
                         System.out.println("Excellent! You had an extremely deep and insightful conversation.");
                         try {
@@ -336,12 +332,10 @@ public class TheGame {
                         } catch (InterruptedException ex) {
                             Thread.currentThread().interrupt();
                         }
-                        System.out.println("How will you seize the opportunity?\n" +
+                        int answerCon1 = mrP.nAnswer("How will you seize the opportunity?\n" +
                                 "1.) Exchange phone numbers and arrange another date.\n" +
                                 "2.) Bring out your origami toolkit and craft a rose and then gift it to your date.\n" +
                                 "3.) Take your date to a party with a DJ and bust out your world-famous dance moves.\n");
-                        userResponse = new Scanner(System.in);
-                        int answerCon1 = userResponse.nextInt();
                         if(answerCon1==1)
                         {
                             System.out.println("Yes! You successfully exchanged phone numbers and set a reservation at the same restaurant for 8 PM that weekend.\n" +
@@ -424,12 +418,10 @@ public class TheGame {
                         } catch (InterruptedException ex) {
                             Thread.currentThread().interrupt();
                         }
-                        System.out.println("How will you recover and regain your date's interest?\n" +
+                        int answerCon2 = mrP.nAnswer("How will you recover and regain your date's interest?\n" +
                                 "1.) Tell them about the fat German kid that drowned in your chocolate pool.\n" +//or did he get stuck in a tube or something I don't know
                                 "2.) Propose and talk about wedding arrangements.\n" +
                                 "3.) Too much pressure! End the date immediately and run home.\n");
-                        userResponse = new Scanner(System.in);
-                        int answerCon2 = userResponse.nextInt();
                         if(answerCon2==1)
                         {
                             System.out.println("Your date interrupts you. \"did you say chocolate pool?\". \"Yes\", you reply. It turns out, your date is quite fond of\n" +//wait was it a chocolate lake. I dont remember
@@ -469,7 +461,7 @@ public class TheGame {
                         }
                         if(answerCon2==3)
                         {
-                            System.out.println("(•_•) J-just..........Why?");
+                            System.out.println("(o_o) J-just..........Why?");
                             try {
                                 Thread.sleep(3000);
                             } catch (InterruptedException ex) {
@@ -496,12 +488,10 @@ public class TheGame {
                         } catch (InterruptedException ex) {
                             Thread.currentThread().interrupt();
                         }
-                        System.out.println("What will you do to continue the date?\n" +//I think no matter what the user picks, they should lose score
+                        int answerCon3 = mrP.nAnswer("What will you do to continue the date?\n" +//I think no matter what the user picks, they should lose score
                                 "1.) Physically block them from leaving and push them back to their seat.\n" +
                                 "2.) Apologize and say you didn't mean it. Ask for a second chance.\n" +
                                 "3.) Say, \"it was just a prank bro.\"\n");
-                        userResponse = new Scanner(System.in);
-                        int answerCon3 = userResponse.nextInt();
                         if(answerCon3==1)
                         {
                             System.out.println("Nice job! You don't have a date anymore but smile a little. You have something even better. A court date! See you then!");
@@ -544,7 +534,7 @@ public class TheGame {
                         }
                         else if(answerCon3==3)
                         {
-                            System.out.println("(•_•)funny prank man. Just take the L and accept that you have ruined yet another date.");
+                            System.out.println("(o_o)funny prank man. Just take the L and accept that you have ruined yet another date.");
                             try {
                                 Thread.sleep(3000);
                             } catch (InterruptedException ex) {
@@ -592,11 +582,10 @@ public class TheGame {
                     } catch (InterruptedException ex) {
                         Thread.currentThread().interrupt();
                     }
-                    System.out.println("It's getting later now so you decide to go to sleep. What should you do?\n" +
+                    int answer2 = mrP.nAnswer("It's getting later now so you decide to go to sleep. What should you do?\n" +
                             "1.) Sit on the floor in the corner with your back to the wall and don't take off any of your things.\n" +
                             "2.) Lie down on the bench or cot without saying anything to the inmates next to you to show dominance.\n" +
                             "3.) Don't sleep you have to stay alert");
-                    int answer2 = userResponse.nextInt();
                     if (answer2 == 1) {
                         System.out.println("Great job, by staying in the corner of the room and not taking off any clothes you don't allow the inmates to\n" +
                                 "play any tricks on you or take any of your stuff(because you always have to assume people are jerks...)");
@@ -743,3 +732,4 @@ public class TheGame {
     }
 
 }
+
