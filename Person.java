@@ -216,12 +216,27 @@ public class Person
       catch(NullPointerException qw){
       }
     }
+    String levelOne = "";
+    boolean isDivisible = false;
     for (int i: average)
      {
+      if (i == 1)
+      {
+        isDivisible = true;
+      }
      sum += i;
-     System.out.print (i+" ");
+     //System.out.print (i+" ");
      }
+    if (isDivisible == true)
+    {
+      levelOne = "Congratulations! You have gotten at least one Level 1 question right!";
+    }
+    if (isDivisible == false)
+    {
+      levelOne = "Wow. You didn't get even one Level 1 question right.";
+    }
     mean = (double)sum/average.length;
+    System.out.println(levelOne);
     System.out.println("You got "+correctA+" out of "+(wAns+cAns)+" correct.");
     System.out.println("Your total score was "+ sum +".");
     System.out.println("Your average score was "+ mean +".");
