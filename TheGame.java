@@ -78,10 +78,14 @@ public class TheGame {
      * @param user needs the Single to use its score
      * @return returns a number that is less than the users score hopefully.
      */
-    private static int decScore(Single user){
+    public static int decScore(Single user){
         int[] nums = new int[10];
+        int number = randomGenerator(100, 0);
+        while(number > user.getScore()){
+            number -= 10;
+        }
         for(int i = 0; i<nums.length; i++){
-            nums[i] = randomGenerator(user.getScore(),5);
+            nums[i] = randomGenerator(user.getScore() - number,5);
         }
         int max = 0;
         int min = Integer.MAX_VALUE;
@@ -102,10 +106,29 @@ public class TheGame {
      * @return whether the user won or lost
      */
     public static String winnerLooser(int score){
-        if(score >= 150){
+        if(score >= 55){
             return "You won!";
         }
         else return "You lost :(";
+    }
+
+    /**
+     * checks if the user's input is a valid choice specifically for the situations
+     * @return once the user chooses a valid answer it will return the valid number to use for the simulation
+     */
+    private static int validNumber(){
+        Scanner scanner = new Scanner(System.in);
+        
+        int num;
+        do {
+            System.out.print("\nPlease enter one of the valid choices (1,2,3): ");
+            while (!scanner.hasNextInt()) {
+                String input = scanner.next();
+                System.out.printf("\"%s\" is not a valid number. Please enter a valid choice:\n", input); //printf formats the print statement to make it tell the user what they did wrong
+            }
+            num = scanner.nextInt();
+        } while (num != 1 && num != 2 && num != 3); //while this statement is not false the while loop will continue to ask the user for the correct choice
+        return num;
     }
 
     public static void main(String[] args) {
@@ -294,7 +317,7 @@ public class TheGame {
 
             System.out.println(theCompetitor);
             System.out.println("You take a step, and look them straight in the eye. ");
-            
+
             String serius = mrP.sAnswer("Do you believe this situation is serious?");
             if (serius.equalsIgnoreCase("Yes")) {
                 int answer1 = mrP.nAnswer("What should you do next?\n" +
@@ -314,7 +337,7 @@ public class TheGame {
                     } catch (InterruptedException ex) {
                         Thread.currentThread().interrupt();
                     }
-                    
+
                     int answerCon = mrP.nAnswer("Luckily, you came prepared. What conversation topic do you choose next?\n" +
                             "1.) What event has shaped your life the most?\n" +
                             "2.) What is your deepest darkest secret?\n" +
@@ -663,73 +686,70 @@ public class TheGame {
                     + "\n2.\"You are a great and lovely person but we just are not meant to be.\"\n3.\"I'm going to be honest. We are not compatible.\"");
 
             Scanner userResponseAtt = new Scanner(System.in);
-            int answerAtt = userResponseAtt.nextInt();
+            int answerAtt = validNumber();
             Situations attSits = new Situations();
             attSits.nextSitForAtt(answerAtt, user);
-
             if(answerAtt==1)
             {
-                int answerAtt1 = userResponseAtt.nextInt();
+                int answerAtt1 = validNumber();
                 attSits.nextSitForAtt1(answerAtt1, user);
                 if(answerAtt1==1)
                 {
-                    int answerAtt11 = userResponseAtt.nextInt();
+                    int answerAtt11 = validNumber();
                     attSits.nextSitForAtt11(answerAtt11, user);
                 }
                 if(answerAtt1==2)
                 {
-                    int answerAtt12 = userResponseAtt.nextInt();
+                    int answerAtt12 = validNumber();
                     attSits.nextSitForAtt12(answerAtt12,user);
                 }
                 if(answerAtt1==3)
                 {
-                    int answerAtt13 = userResponseAtt.nextInt();
+                    int answerAtt13 = validNumber();
                     attSits.nextSitForAtt13(answerAtt13,user);
                 }
             }
             if(answerAtt==2)
             {
-                int answerAtt2 = userResponseAtt.nextInt();
+                int answerAtt2 = validNumber();
                 attSits.nextSitForAtt2(answerAtt2, user);
                 if(answerAtt2==1)
                 {
-                    int answerAtt21 = userResponseAtt.nextInt();
+                    int answerAtt21 = validNumber();
                     attSits.nextSitForAtt21(answerAtt21,user);
                 }
                 if(answerAtt2==2)
                 {
-                    int answerAtt22 = userResponseAtt.nextInt();
+                    int answerAtt22 = validNumber();
                     attSits.nextSitForAtt22(answerAtt22,user);
                 }
                 if(answerAtt2==3)
                 {
-                    int answerAtt23 = userResponseAtt.nextInt();
+                    int answerAtt23 = validNumber();
                     attSits.nextSitForAtt23(answerAtt23,user);
                 }
             }
             if(answerAtt==3)
             {
-                int answerAtt3 = userResponseAtt.nextInt();
+                int answerAtt3 = validNumber();
                 attSits.nextSitForAtt3(answerAtt3, user);
                 if(answerAtt3==1)
                 {
-                    int answerAtt31 = userResponseAtt.nextInt();
+                    int answerAtt31 = validNumber();
                     attSits.nextSitForAtt31(answerAtt31,user);
                 }
                 if(answerAtt3==2)
                 {
-                    int answerAtt32 = userResponseAtt.nextInt();
+                    int answerAtt32 = validNumber();
                     attSits.nextSitForAtt32(answerAtt32,user);
                 }
                 if(answerAtt3==3)
                 {
-                    int answerAtt33 = userResponseAtt.nextInt();
+                    int answerAtt33 = validNumber();
                     attSits.nextSitForAtt33(answerAtt33,user);
                 }
             }
         }
         //*********************************************************************************************************************************************************************
     }
-
 }
-
