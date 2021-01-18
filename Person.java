@@ -321,5 +321,23 @@ public class Person
     }
     return number;
   }
+  public String nameAnswer (String question)
+  {
+    boolean validAnswer = false;
+    String personality = "";
+    while(validAnswer == false){
+      System.out.println(question);
+      Scanner character = new Scanner(System.in);
+      personality = character.nextLine();
+      if (personality.isEmpty()==true){
+        validAnswer = false;
+        System.out.println("Please enter a name.");
+      }
+      else {
+        validAnswer = true;
+      }
+    }
+    return personality ;
+  }
 }
 
