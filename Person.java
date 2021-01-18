@@ -208,10 +208,19 @@ public class Person
         }
       }
     }
+    int repeatLevel = 0;
     for (int i = 0; i < quesArr.length; i++)
     {
       try{
+        if ((quesArr[i]).getLevel() == repeatLevel)
+        {
+          System.out.print("");
+        }
+        else
+        {
           System.out.println((quesArr[i]).toTString());
+        }
+        repeatLevel = (quesArr[i]).getLevel();  
       }
       catch(NullPointerException qw){
       }
