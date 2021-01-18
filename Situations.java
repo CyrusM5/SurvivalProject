@@ -466,27 +466,4 @@ public class Situations extends TheGame {
                     "highschool relationships ending in marriage your chances of finding your true love are pretty low...");
         }
     }
-
-    /**
-     * returns a random number by which the score will decrease
-     * @param user needs the Single to use its score
-     * @return returns a number that is less than the users score hopefully.
-     */
-    public static int decScore(Single user){
-        int[] nums = new int[10];
-        for(int i = 0; i<nums.length; i++){
-            nums[i] = randomGenerator(user.getScore(),5);
-        }
-        int max = 0;
-        int min = Integer.MAX_VALUE;
-        for(int i = 0; i<nums.length; i++){
-            if(nums[i]> max){
-                max = nums[i];
-            }
-            else if(nums[i]< min){
-                min = nums[i];
-            }
-        }
-        return max - min;
-    }
 }
